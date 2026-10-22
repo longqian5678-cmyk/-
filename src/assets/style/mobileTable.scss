@@ -1,0 +1,21 @@
+@use 'initial-variables' as *;
+
+// For the mobile screen sizes, this overrides the settings in cveTableStacked,
+// which was causing tables to be split into multiple tables and the year
+// headings to be hidden.  This keeps the tables intact.  Mobile users will
+// be able to horizontally scroll as normal.
+
+@media only screen and (max-width: $desktop) {
+
+  td {
+    display: table-cell;
+  }
+
+  thead th {
+    display: table-cell;
+  }
+
+  tr {
+    display: table-row !important;
+  }
+}

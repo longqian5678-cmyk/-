@@ -1,0 +1,748 @@
+{
+  "currentEvents": [
+    {
+      "id": 46,
+      "title": "CVE/FIRST VulnCon 2027",
+      "location": "Scottsdale, Arizona, USA & Virtual",
+      "description": "SAVE THE DATE!<br/><br/>VulnCon is co-hosted by the <a href='/'>CVE Program</a> and <a href='https://www.first.org/' target='_blank'>FIRST</a> and is open to the public.<br/><br/>The purpose of VulnCon is to collaborate with various vulnerability management and cybersecurity professionals to develop forward leaning ideas that can be taken back to individual programs for action to benefit the vulnerability management ecosystem.<br/><br/>A key goal of the conference is to understand what important stakeholders and programs are doing within the vulnerability management ecosystem and best determine how to benefit the ecosystem broadly.",
+      "permission": "public",
+      "url": "https://www.first.org/events/",
+      "date": {
+        "start": "2027-03-30",
+        "end": "2027-04-02",
+        "repeat": false
+      }
+    },
+    {
+      "id": 45,
+      "title": "CVE Program Technical Workshop – Autumn 2026",
+    "displayOnHomepageOrder": 1,
+      "location": "Virtual",
+      "description": "A collaborative virtual community event of CVE Partners focused on improving CVE.<br/><br/>This workshop for <a href='/ProgramOrganization/CNAs'>CVE Numbering Authorities (CNAs)</a> is free, but registration is required.<br/><br/><strong>Date:</strong> Thursday, October 29, 2026<br/><strong>Times:</strong> 10:00 AM - 4:00 PM EDT<br/><strong>Format:</strong> Virtual (Microsoft Teams)<br/><strong>Registration:</strong> Open</br>(Closes 11:59 PM EDT on October 23, 2026)<br/><strong>Agenda:</strong> TBA</br>(Call for Topics closed on October 7, 2026)<br/><br/>“Registration Reminder” email sent to CNAs on October 5, 2026.<br/><br/>“Call for Topics Deadline” / “Registration Deadline” email sent to CNAs on September 17, 2026.<br/><br/>“Call for Topics” / “Registration” email sent to CNAs on September 3, 2026.<br/><br/>“Save-the-Date” email sent to CNAs on August 27, 2026.<br/><br/>View the <a href='https://www.youtube.com/playlist?list=PLWfD9RQVdJ6dT8VZntG-DsK7c34rNNMMv' target='_blank'>2025 workshop videos</a>.",
+      "permission": "private",
+      "url": "",
+      "date": {
+        "start": "2026-10-29",
+        "end": "2026-10-29",
+        "repeat": false
+      }
+    },
+    {
+      "id": 44,
+      "title": "DEF CON 34",
+      "location": "Las Vegas, Nevada, USA + Virtual",
+      "description": "CVE presentation: “When AI Finds Everything: Vulnerability Discovery for the Coming Vulnerability Surge” by Lindsey Cerkovnik (CISA, US), Alec Summers (The MITRE Corporation, US) at Policy @ DEF CON<br/><br/>Also, CVE attending. Look for us and say hello!",
+      "permission": "public",
+      "url": "https://defcon.org/html/defcon-34/dc-34-index.html",
+      "date": {
+        "start": "2026-08-06",
+        "end": "2026-08-09",
+        "repeat": false
+      }
+    },
+    {
+      "id": 43,
+      "title": "Black Hat USA 2026",
+      "location": "Las Vegas, Nevada, USA + Virtual",
+      "description": "CVE attending. Look for us and say hello!",
+      "permission": "public",
+      "url": "https://www.blackhat.com/us-26/",
+      "date": {
+        "start": "2026-08-01",
+        "end": "2026-08-06",
+        "repeat": false
+      }
+    },
+    {
+      "id": 42,
+      "title": "CVE Virtual Event: CVE in an Era of AI-Enabled Vulnerability Discovery",
+      "location": "Virtual",
+      "description": "<strong>Time:</strong> 10:00–14:00 EDT (UTC-4)</br><strong>Format:</strong> Virtual (Microsoft Teams)<br/><strong>Cost:</strong> Free<br/><strong>Registration:</strong> Closed<br/><br/>Watch <a href='https://youtu.be/fV_X57aD188' target='_blank'>conference video</a>.<br/><br/>Read <a href='https://www.cve.org/Resources/General/CVE-AI-Conference-Meeting-Notes-July2026.pdf' target='_blank'>meeting notes</a>.<br/><br/>Post-event survey email sent to attendees on August 27, 2026.<br/><br/>A free virtual conference for the community to come together and discuss how AI-enabled vulnerability discovery is affecting the CVE Program and the broader vulnerability management ecosystem &mdash; and where current models may need to adapt.<br/><br/>Community members were encouraged to submit proposed discussion topics, session ideas, first-hand observations, and offers to lead or facilitate conversations for this community event through a CVE Program GitHub issue tracker. Submissions were required to be posted by 5:00 PM EDT on July 14, 2026, to be considered for the agenda.<br/><br/>The event included first-hand observations, discussion topics, and participants to lead and facilitate collaborative conversations across the ecosystem, including researchers, software manufacturers, open source maintainers, bug bounty operators, CNAs, Roots, tooling vendors, and downstream CVE data consumers.<br/><br/>Registration closed at 11:59 PM EDT on July 27, 2026.",
+      "permission": "public",
+      "url": "/Media/News/item/blog/2026/06/15/CVE-AI-Vulnerability-Discovery-Discussion",
+      "date": {
+        "start": "2026-07-30",
+        "end": "2026-07-30",
+        "repeat": false
+      }
+    },
+    {
+      "id": 41,
+      "title": "38th Annual FIRST Conference",
+      "location": "Denver, Colorado, USA",
+      "description": "CVE attending. Look for us and say hello!",
+      "permission": "public",
+      "url": "https://www.first.org/conference/2026/",
+      "date": {
+        "start": "2026-06-14",
+        "end": "2026-06-19",
+        "repeat": false
+      }
+    },
+    {
+      "id": 40,
+      "title": "CVE/FIRST VulnCon 2026",
+      "location": "Scottsdale, Arizona, USA & Virtual",
+      "description": "VulnCon is co-hosted by the <a href='/'>CVE Program</a> and <a href='https://www.first.org/conference/vulncon26/' target='_blank'>FIRST</a> and is open to the public.  Watch session videos <a href='https://www.youtube.com/watch?v=bBunxDmWb0A&list=PLWfD9RQVdJ6cKuu4Gr1uglJv_E5zfWh9R' target='_blank'>here</a>.<br/><br/><strong>Agenda</strong>:<br/>Available on the <a href='https://www.first.org/conference/vulncon26/program' target='_blank'>conference web page</a> or view the schedule by day:<br/><br/><strong>Monday, April 13</strong> &mdash; <a href='https://www.first.org/conference/vulncon26/program#d20260413' target='_blank'>View day 1 schedule</a><br/><strong>Tuesday, April 14</strong> &mdash;  <a href='https://www.first.org/conference/vulncon26/program#d20260414' target='_blank'>View day 2 schedule</a><br/><strong>Wednesday, April 15</strong> &mdash; <a href='https://www.first.org/conference/vulncon26/program#d20260415' target='_blank'>View day 3 schedule</a><br/><strong>Thursday, April 16</strong> &mdash; <a href='https://www.first.org/conference/vulncon26/program#d20260416' target='_blank'>View day 4 schedule</a><br/><br/>An Offsite Social Event will be held at the Western Spirit Museum on Wednesday, April 15. Learn more <a href='https://www.first.org/conference/vulncon26/registration#Registration-Information' target='_blank'>here</a>.<br/><br/><strong>Registration</strong>:<br/>Closed on April 6, 2026, at 19:00 UTC. Learn more <a href='https://www.first.org/conference/vulncon26/registration#Registration-Information' target='_blank'>here</a>. <ul><li>Standard Admission (by March 14, 2026): US $525.00</li><li>Late Rate Admission (after March 14, 2026): US $600.00</li><li>Virtual Admission: US $100.00</li></ul>Registration fees include full admission to conference activities Monday through Thursday; continental breakfast, lunch, and two coffee breaks Tuesday through Thursday; entry to the Monday welcome reception; entry to the Tuesday networking reception; entry to the vendor hall; all applicable conference materials;, and access to live streams and applicable apps.<br/><br/><strong>Purpose:</strong><br/>The purpose of VulnCon is to collaborate with various vulnerability management and cybersecurity professionals to develop forward leaning ideas that can be taken back to individual programs for action to benefit the vulnerability management ecosystem.<br/><br/>A key goal of the conference is to understand what important stakeholders and programs are doing within the vulnerability management ecosystem and best determine how to benefit the ecosystem broadly.<br/><br/><strong>Call for Speakers (CFS)</strong>:<br/>Closed on December 22, 2025. The <a href='https://www.first.org/conference/vulncon26/cfs' target='_blank'>CFS</a> requirements and submission process are available <a href='https://www.first.org/conference/vulncon26/cfs' target='_blank'>here</a>.",
+      "permission": "public",
+      "url": "https://www.first.org/conference/vulncon26/",
+      "date": {
+        "start": "2026-04-13",
+        "end": "2026-04-16",
+        "repeat": false
+      }
+    },
+    {
+      "id": 39,
+      "title": "CVE Program Technical Workshop – Autumn 2025",
+      "location": "Virtual",
+      "description": "A collaborative virtual community event of CVE Partners focused on improving CVE.<br/><br/>Event Time: 10:00 AM to 2:00 PM EDT (UTC-4) both days.<br/><br/>This workshop for <a href='/ProgramOrganization/CNAs'>CVE Numbering Authorities (CNAs)</a> is free, but registration is required. The registration deadline is 11:59 p.m. EDT (UTC-4) on October 21, 2025.<br/><br/>Please refer to the CNA partners email announcement sent on October 9, 2025, for registration information and other workshop details. The final agenda will be sent directly to registered attendees.<br/><br/>All CNAs should attend this workshop. There is no limit on the number of attendees that can participate from your organization.<br/><br/>View <a href='https://www.youtube.com/playlist?list=PLWfD9RQVdJ6dT8VZntG-DsK7c34rNNMMv' target='_blank'>workshop videos</a>.",
+      "permission": "private",
+      "url": "/Media/News/item/news/2025/10/14/Register-Now-for-CVE-Technical-Workshop-2025",
+      "date": {
+        "start": "2025-10-22",
+        "end": "2025-10-23",
+        "repeat": false
+      }
+    },
+    {
+      "id": 38,
+      "title": "Consumer Working Group (CWG) Meeting",
+      "location": "Virtual",
+      "description": "CWG identifies consumer needs, evaluates the usability of CVE data, and recommends improvements to ensure that the CVE Program remains aligned with real-world use cases.",
+      "permission": "private",
+      "url": "/ProgramOrganization/WorkingGroups#CVEConsumerWorkingGroupCWG",
+      "date": {
+        "start": "2025-09-01",
+        "end": "ongoing",
+        "repeat": {
+          "day": "Thursday",
+          "recurrence": "biweekly"
+        }
+      }
+    },
+    {
+      "id": 37,
+      "title": "Researcher Working Group (RWG) Meeting",
+      "location": "Virtual",
+      "description": "Focused on giving voice to, and establishing working norms for, the extended community of designated Researcher CNAs. This includes providing guidance and advice to the research community, as well as other research community activities designed to promote the CVE Program.",
+      "permission": "private",
+      "url": "/ProgramOrganization/WorkingGroups#ResearcherWorkingGroupRWG",
+      "date": {
+        "start": "2025-07-01",
+        "end": "ongoing",
+        "repeat": {
+          "day": "Tuesday",
+          "recurrence": "weekly"
+        }
+      }
+    },
+    {
+      "id": 36,
+      "title": "37th Annual FIRST Conference (CVE Program Booth #15)",
+      "location": "Copenhagen, Denmark",
+      "description": "CVE Program <a href='https://www.first.org/conference/2025/FIRSTCON25_Exhibitor_Map_FINAL.pdf' target='_blank'>Booth #15</a>.<br/><br/>Exhibitor Schedule for Hall E: Monday, June 23 through Thursday, June 26 during all break times. Also, during the Sponsor Showcase Reception on Monday evening, June 23, from 17:30-19:30.",
+      "permission": "public",
+      "url": "https://www.first.org/conference/2025/",
+      "date": {
+        "start": "2025-06-22",
+        "end": "2025-06-27",
+        "repeat": false
+      }
+    },
+    {
+      "id": 35,
+      "title": "CVE Artificial Intelligence Working Group (CVEAI WG) Meeting",
+      "location": "Virtual",
+      "description": "Focused on defining swim lanes for AI vulnerability disclosure within the CVE Program.",
+      "permission": "private",
+      "url": "/ProgramOrganization/WorkingGroups#CVEArtificialIntelligenceWorkingGroupCVEAIWG",
+      "date": {
+        "start": "2025-01-01",
+        "end": "ongoing",
+        "repeat": {
+          "day": "Monday",
+          "recurrence": "biweekly"
+        }
+      }
+    },
+    {
+      "id": 34,
+      "title": "CVE/FIRST VulnCon 2025",
+      "location": "Raleigh, North Carolina, USA & Virtual",
+      "description": "VulnCon 2025 is co-sponsored by the <a href='/'>CVE Program</a> and <a href='https://www.first.org/' target='_blank'>FIRST</a> and is open to the public. Watch session videos <a href='https://www.youtube.com/watch?v=TH1tGO15K24&list=PLWfD9RQVdJ6cm3kSvz-Sk87CawSzn5Ep0' target='_blank'>here</a>.<br/><br/><strong>SPECIAL MESSAGE FOR CVE NUMBERING AUTHORITIES (CNAs)</strong>:<br/><i>VulnCon 2025 takes the place of this year’s Spring CVE Global Summit.</i><br/><br/><strong>Agenda</strong>:<br/> Available <a href='https://www.first.org/conference/vulncon2025/program' target='_blank'>here</a>.<br/><br/><strong>Program Overview</strong>:<br/>* Day 1: Monday, April 7 &mdash; Plenary, Vendor Tables, Welcome Reception<br/>* Day 2: Tuesday, April 8 &mdash; Plenary, Vendor Tables, Off-site Social Event<br/>* Day 3: Wednesday, April 9 &mdash; Plenary, Breakouts, Vendor Tables<br/>* Day 4: Thursday, April 10 &mdash; Plenary, Breakouts, Vendor Tables<br/><br/><strong>Venue</strong>:<br/><a href='https://facilities.ofa.ncsu.edu/building/mck/' target='_blank'>McKimmon Center,<br/>North Carolina State University</a>,<br/>1101 Gorman St.,<br/> Raleigh, North Carolina 27606<br/>USA<br/><br/><strong>Registration</strong>:<br/>Registration is now closed. Details <a href='https://www.first.org/conference/vulncon2025/#Registration-Information' target='_blank'>here</a>.<br/><ul><li>Virtual Admission: US $100.00 (closed)</li><li>In-person Standard Admission (closed): US $300.00</li><li>In-person Late Rate Admission (closed): US $375.00</li></ul>Registration fees include four days of coffee breaks and buffet lunches, one networking reception hosted at the McKimmon Center, and applicable meeting materials. Note that discounted rates are not being offered for this event regardless of membership or speaking status.<br/><br/>An offsite social event is planned for Tuesday, April 8, from 19:00-21:00 in downtown Raleigh. You may purchase a ticket during your main registration or access a separate purchase form link found in your registration email confirmation. Tickets are US $30.00 per person.<br/><br/><strong>Call for Papers</strong>:<br/>Closed on January 31, 2025. Details <a href='https://www.first.org/conference/vulncon2025/cfp' target='_blank'>here</a>.<br/><br/><strong>Purpose</strong>:<br/>The purpose of <a href='https://www.first.org/conference/vulncon2025/' target='_blank'>VulnCon</a> is to collaborate with various vulnerability management and cybersecurity professionals to develop forward leaning ideas that can be taken back to individual programs for action to benefit the vulnerability management ecosystem.<br/><br/>A key goal of the conference is to understand what important stakeholders and programs are doing within the vulnerability management ecosystem and best determine how to benefit the ecosystem broadly.",
+      "permission": "public",
+      "url": "https://www.first.org/conference/vulncon2025/",
+      "date": {
+        "start": "2025-04-07",
+        "end": "2025-04-10",
+        "repeat": false
+      }
+    },
+    {
+      "id": 33,
+      "title": "CVE Program Workshop – Autumn 2024",
+      "location": "Virtual",
+      "description": "A collaborative virtual community event of CVE Partners focused on improving CVE.<br/><br/>Event Time: 10:00 AM to 2:00 PM EDT both days.<br/><br/>Please refer to the CNA partners email announcements for agenda topics and other workshop details.<br/><br/>View <a href='https://www.youtube.com/playlist?list=PLWfD9RQVdJ6c4D_PAvO9hgtQSDTD2epOo' target='_blank'>workshop videos</a>.",
+      "permission": "private",
+      "url": "",
+      "date": {
+        "start": "2024-10-29",
+        "end": "2024-10-30",
+        "repeat": false
+      }
+    },
+    {
+      "id": 32,
+      "title": "Vulnerability Conference and Events Working Group (VCEWG)",
+      "location": "Virtual",
+      "description": "Focused on planning and managing collaborative events, especially the annual “VulnCon” (spring) conferences co-hosted by the CVE Program and FIRST and the “CVE Program Workshops” (autumn) for CNAs.<br/><br/>Meetings are scheduled as needed in the lead up to events.",
+      "permission": "private",
+      "url": "/ProgramOrganization/WorkingGroups#VulnerabilityConferenceandEventsWorkingGroupVCEWG",
+      "date": {
+        "start": "2025-01-01",
+        "end": "ongoing",
+        "repeat": {
+          "day": "As Needed",
+          "recurrence": ""
+          }
+        }
+    },
+    {
+      "id": 30,
+      "title": "DEF CON 32",
+      "location": "Las Vegas, Nevada, USA + Virtual",
+      "description": "CVE attending. Look for us and say hello!",
+      "permission": "public",
+      "url": "https://defcon.org/html/defcon-32/dc-32-index.html",
+      "date": {
+        "start": "2024-08-08",
+        "end": "2024-08-11",
+        "repeat": false
+      }
+    },
+    {
+      "id": 29,
+      "title": "Black Hat USA 2024",
+      "location": "Las Vegas, Nevada, USA + Virtual",
+      "description": "CVE attending. Look for us and say hello!",
+      "permission": "public",
+      "url": "https://www.blackhat.com/us-24/",
+      "date": {
+        "start": "2024-08-03",
+        "end": "2024-08-08",
+        "repeat": false
+      }
+    },
+    {
+      "id": 28,
+      "title": "36th Annual FIRST Conference",
+      "location": "Fukuoka, Japan + Virtual",
+      "description": "CVE attending. Look for us and say hello!",
+      "permission": "public",
+      "url": "https://www.first.org/conference/2024",
+      "date": {
+        "start": "2024-06-09",
+        "end": "2024-06-14",
+        "repeat": false
+      }
+    },
+    {
+      "id": 31,
+      "title": "CNA Rules v4.0 Q&A Webinar",
+      "location": "Virtual",
+      "description": "<i>This event is limited to authorized representatives from <a href='/PartnerInformation/ListofPartners'>CVE Numbering Authority (CNA)</a> partners <strong>only</strong>.</i><br/><br/><strong>Time: </strong>11:00 AM - 12:30 PM EDT<br/><br/><strong>Registration: </strong>Available for CNA partners on the <a href='https://events.gcc.teams.microsoft.com/event/d96f8b09-6c1b-4227-acff-0e6feaf2adcc@c620dc48-1d50-4952-8b39-df4d54d74d82' target='_blank'>webinar website</a>.<br/><br/><strong>IMPORTANT: </strong>CNAs are encouraged to submit questions ahead of time via this <a href='https://forms.office.com/g/KDShHyZ197' target='_blank'>web form</a>.<br/><br/><strong>Purpose: </strong>The purpose of this <a href='/'>CVE<sup>&trade;</sup> Program</a> webinar is to update <a href='/ProgramOrganization/CNAs'>CNAs</a> about the new and improved <a href='/Resources/Roles/Cnas/CNA_Rules_v4.0.pdf' target='_blank'>CNA Rules Version 4.0</a> (PDF).<br/><br/>Topics will include the ways the new rules might affect CNA processes in the short term, the benefits for CNAs moving forward, and the expected positive impact on the vulnerability management ecosystem.<br/><br/>CNAs, <a href='https://events.gcc.teams.microsoft.com/event/d96f8b09-6c1b-4227-acff-0e6feaf2adcc@c620dc48-1d50-4952-8b39-df4d54d74d82' target='_blank'>register today</a>!",
+      "permission": "private",
+      "url": "https://events.gcc.teams.microsoft.com/event/d96f8b09-6c1b-4227-acff-0e6feaf2adcc@c620dc48-1d50-4952-8b39-df4d54d74d82/registration",
+      "date": {
+        "start": "2024-06-05",
+        "end": "2024-06-05",
+        "repeat": false
+      }
+    },
+    {
+      "id": 27,
+      "title": "CVE/FIRST VulnCon 2024",
+      "location": "Raleigh, North Carolina, USA & Virtual",
+      "description": "VulnCon 2024 is co-sponsored by the <a href='/'>CVE Program</a> and <a href='https://www.first.org/' target='_blank'>FIRST</a> and is open to the public. Watch session videos <a href='https://www.youtube.com/playlist?list=PLWfD9RQVdJ6db44oVABnI_JhIFEumoQnZ' target='_blank'>here</a>.<br/><br/><strong>SPECIAL MESSAGE FOR CVE NUMBERING AUTHORITIES (CNAs)</strong>:<br/><i>VulnCon 2024 takes the place of this year’s Spring CVE Global Summit.</i><br/><br/><strong>Program Overview</strong>:<br/>* Day 1: Monday, March 25 &mdash;</br>Registration, Sessions, Opening Social Event<br/>* Day 2: Tuesday, March 26 &mdash;<br/>Registration, Sessions, Networking Reception<br/>* Day 3: Wednesday, March 27 &mdash;<br/> Registration, Sessions, Adjourn<br/><br/><strong>Agenda</strong>:<br/>View the <a href='https://www.first.org/conference/vulncon2024/program' target='_blank'>conference agenda</a>.<br/><br/><strong>Venue</strong>:<br/><a href='https://facilities.ofa.ncsu.edu/building/mck/' target='_blank'>McKimmon Center,<br/>North Carolina State University</a>,<br/>1101 Gorman St.,<br/> Raleigh, North Carolina 27606<br/>USA<br/><br/><strong>Purpose</strong>:<br/>The purpose of <a href='https://www.first.org/conference/vulncon2024/' target='_blank'>VulnCon</a> is to collaborate with various vulnerability management and cybersecurity professionals to develop forward leaning ideas that can be taken back to individual programs for action to benefit the vulnerability management ecosystem.<br/><br/>A key goal of the conference is to understand what important stakeholders and programs are doing within the vulnerability management ecosystem and best determine how to benefit the ecosystem broadly.<br/><br/><strong>Call for Papers</strong>:<br/>Closed on January 31, 2024. Details <a href='https://www.first.org/conference/vulncon2024/#Call-for-Papers-NOW-OPEN' target='_blank'>here</a>.<br/><br/><strong>Registration</strong>:<br/>Closed on March 15, 2024. Details <a href='https://www.first.org/conference/vulncon2024/#Registration' target='_blank'>here</a>.",
+      "permission": "public",
+      "url": "https://www.first.org/conference/vulncon2024/",
+      "date": {
+        "start": "2024-03-25",
+        "end": "2024-03-27",
+        "repeat": false
+      }
+    },
+    {
+      "id": 26,
+      "title": "CVE Program Workshop – Autumn 2023",
+      "location": "Virtual",
+      "description": "A collaborative virtual community event of CVE Partners focused on improving CVE.<br/><br/>Meeting invite with agenda sent October 17, 2023.<br/><br/>Event Time: 10:30 AM to 4:00 PM (EST, GMT-5)",
+      "permission": "private",
+      "url": "",
+      "date": {
+        "start": "2023-11-15",
+        "end": "2023-11-15",
+        "repeat": false
+      }
+    },
+    {
+      "id": 25,
+      "title": "DEF CON 31",
+      "location": "Las Vegas, Nevada, USA + Virtual",
+      "description": "CVE attending. Look for us and say hello!",
+      "permission": "public",
+      "url": "https://defcon.org/html/defcon-31/dc-31-index.html",
+      "date": {
+        "start": "2023-08-10",
+        "end": "2023-08-13",
+        "repeat": false
+      }
+    },
+    {
+      "id": 24,
+      "title": "Black Hat USA 2023",
+      "location": "Las Vegas, Nevada, USA + Virtual",
+      "description": "CVE attending. Look for us and say hello!",
+      "permission": "public",
+      "url": "https://www.blackhat.com/us-23/",
+      "date": {
+        "start": "2023-08-05",
+        "end": "2023-08-10",
+        "repeat": false
+      }
+    },
+    {
+      "id": 23,
+      "title": "35th Annual FIRST Conference",
+      "location": "Montréal, Quebec, Canada + Virtual",
+      "description": "CVE attending. Look for us and say hello!",
+      "permission": "public",
+      "url": "https://www.first.org/conference/2023/",
+      "date": {
+        "start": "2023-06-04",
+        "end": "2023-06-09",
+        "repeat": false
+      }
+    },
+    {
+      "id": 22,
+      "title": "Tactical Working Group (TWG) Meeting",
+      "location": "Virtual",
+      "description": "Focused on on managing, coordinating, and expediting CVE Program activities, communications, and processes for the benefit of program stakeholders.",
+      "permission": "private",
+      "url": "/ProgramOrganization/WorkingGroups#TacticalWorkingGroupTWG",
+      "date": {
+        "start": "2025-01-01",
+        "end": "ongoing",
+        "repeat": {
+          "day": "Thursday",
+          "recurrence": "weekly"
+        }
+      }
+    },
+    {
+      "id": 21,
+      "title": "CVE at RSA Conference 2023 (booth #6566)",
+      "location": "San Francisco, California, USA",
+      "description": "CVE Program <a href='https://www.rsaconference.com/usa/expo-and-sponsors/sponsor-details/common-vulnerabilities%20and%20exposures%20cve%20program16615250950690012dbs' target='_blank'>Booth #6566</a>.<br/><br/>Moscone North Expo hours:<br/>April 25: 10:00 AM &ndash; 6:00 PM PT<br/>April 26: 10:00 AM &ndash; 6:00 PM PT<br/>April 27: 10:00 AM &ndash; 3:00 PM PT<br/><br/>Full event is April 24-27.",
+      "permission": "public",
+      "url": "https://www.rsaconference.com/usa/expo-and-sponsors/sponsor-details/common-vulnerabilities%20and%20exposures%20cve%20program16615250950690012dbs",
+      "date": {
+        "start": "2023-04-25",
+        "end": "2023-04-27",
+        "repeat": false
+      }
+    },
+    {
+      "id": 20,
+      "title": "CVE Global Summit – Spring 2023",
+      "location": "McLean, Virginia, USA + Virtual",
+      "description": "A collaborative community event of CVE Partners focused on improving CVE.<br/><br/><strong>Registration:</strong><br/><strong>Virtual</strong> &ndash; Meeting invite sent January 30, 2023<br/><strong>In-person</strong> &ndash; Registration link for in-person attendance sent with meeting invite (in-person registration due by March 8, 2023)<br/><br/><strong>Venue:</strong> The MITRE Corporation, 7515 Colshire Drive, McLean, Virginia, USA",
+      "permission": "private",
+      "url": "",
+      "date": {
+        "start": "2023-03-22",
+        "end": "2023-03-23",
+        "repeat": false
+      }
+    },
+    {
+      "id": 19,
+      "title": "2023 FIRST & AfricaCERT Symposium: Africa and Arab Regions",
+      "location": "Kigali, Rwanda",
+      "description": "CVE talk by <a href='/ProgramOrganization/WorkingGroups#OutreachandCommunicationsWorkingGroupOCWG'>OCWG</a> member Jean-Robert Hountomey of <a href='https://www.africacert.org/' target='_blank'>AfricaCERT</a>.",
+      "permission": "public",
+      "url": "https://www.first.org/events/symposium/africa-arab-regions2023/",
+      "date": {
+        "start": "2023-02-28",
+        "end": "2023-03-03",
+        "repeat": false
+      }
+    },
+    {
+      "id": 18,
+      "title": "CVE Services Workshop",
+      "location": "Virtual",
+      "description": "A collaborative event for CNAs to learn how to use <a href='https://cveproject.github.io/automation-cve-services#services-overview' target='_blank'>CVE Services 2.1</a> to create, publish, and modify their own <a href='/ResourcesSupport/Glossary?activeTerm=glossaryRecord'>CVE Records</a>; learn about <a href='https://cveproject.github.io/automation-cve-services#json-overview' target='_blank'>CVE JSON 5.0</a>, the new and enhanced format for CVE Records; and <a href='/Media/News/item/news/2022/08/30/CVE-Services-Workshop-for-CNAs'>much more</a>.<br/><br/>Time: <strong>10:00 a.m. – 2:00 p.m. ET</strong>",
+      "permission": "private",
+      "url": "/Media/News/item/news/2022/08/30/CVE-Services-Workshop-for-CNAs",
+      "date": {
+        "start": "2022-11-02",
+        "end": "2022-11-02",
+        "repeat": false
+      }
+    },
+    {
+      "id": 17,
+      "title": "2022 FIRST PSIRT SIG Technical Colloquium",
+      "location": "Newtown Square, Pennsylvania, USA + Virtual",
+      "description": "“The Current State of the CVE Program with an Eye Towards the Future” presentation on Thursday, September 29, from 1:30 p.m. – 2:30 p.m. ET.<br/><br/>The event itself runs September 28-29.",
+      "permission": "public",
+      "url": "https://www.first.org/events/colloquia/newtownsquare2022/program",
+      "date": {
+        "start": "2022-09-29",
+        "end": "2022-09-29",
+        "repeat": false
+      }
+    },
+    {
+      "id": 16,
+      "title": "Black Hat USA 2022",
+      "location": "Las Vegas, Nevada, USA + Virtual",
+      "description": "CVE attending. Look for us and say hello!",
+      "permission": "public",
+      "url": "https://www.blackhat.com/us-22/?_mc=sem_bhus_sem_bhus_x_tspr_Google_pmcopyasia_bhusagpmcopyofbhasia2022_2022&gclid=CjwKCAjwqauVBhBGEiwAXOepka683T7MmaMHN8j0YrNmAmxHCqnnvTq50ZvK1Za0Djuz6ge8MKNiuRoCxnkQAvD_BwE",
+      "date": {
+        "start": "2022-08-06",
+        "end": "2022-08-11",
+        "repeat": false
+      }
+    },
+    {
+      "id": 15,
+      "title": "34th Annual FIRST Conference 2022",
+      "location": "Dublin, Ireland + Virtual",
+      "description": "CVE attending. Look for us and say hello!",
+      "permission": "public",
+      "url": "https://www.first.org/conference/2022/",
+      "date": {
+        "start": "2022-06-26",
+        "end": "2022-07-01",
+        "repeat": false
+      }
+    },
+    {
+      "id": 14,
+      "title": "Open Source Summit North America 2022",
+      "location": "Austin, Texas, USA + Virtual",
+      "description": "“<a href='https://ossna2022.sched.com/event/11PvJ/' target='_blank'>Future of CVE</a>” talk by <a href='/ProgramOrganization/Board'>CVE Board</a> member Art Manion of <a href='https://www.cert.org/' target='_blank'>CERT/CC</a>.",
+      "permission": "public",
+      "url": "https://ossna2022.sched.com/",
+      "date": {
+        "start": "2022-06-23",
+        "end": "2022-06-23",
+        "repeat": false
+      }
+    },
+    {
+      "id": 13,
+      "title": "RSA 2022",
+      "location": "San Francisco, California, USA + Virtual",
+      "description": "“<a href='https://www.rsaconference.com/library/Presentation/USA/2022/The%20Future%20of%20Vulnerability%20Disclosure%20Processes%20Rapid7' target='_blank'>The Future of Vulnerability Disclosure Processes</a>” talk by <a href='/ProgramOrganization/Board'>CVE Board</a> member Tod Beardsley of <a href='https://www.rapid7.com/' target='_blank'>Rapid7</a>.",
+      "permission": "public",
+      "url": "https://www.rsaconference.com/",
+      "date": {
+        "start": "2022-06-07",
+        "end": "2022-06-07",
+        "repeat": false
+      }
+    },
+    {
+      "id": 12,
+      "title": "2022 TF-CSIRT Meeting & FIRST Regional Symposium Europe",
+      "location": "Virtual",
+      "description": "CVE lightning talk by <a href='/ProgramOrganization/Board'>CVE Board</a> member Shannon Sabens of <a href='https://www.crowdstrike.com/' target='_blank'>Crowdstrike</a>.",
+      "permission": "public",
+      "url": "https://www.first.org/events/symposium/regional_europe2022/",
+      "date": {
+        "start": "2022-03-02",
+        "end": "2022-03-03",
+        "repeat": false
+      }
+    },
+    {
+      "id": 11,
+      "title": "HITCON Pacific 2021",
+      "location": "Taipei, Taiwan — Virtual",
+      "description": "CVE talk by <a href='/ProgramOrganization/Board'>CVE Board</a> member Takayuki Uchiyama of <a href='https://www.panasonic.com/global/home.html' target='_blank'>Panasonic Corporation</a>.",
+      "permission": "public",
+      "url": "https://cfp2021.hitcon.org/",
+      "date": {
+        "start": "2021-10-27",
+        "end": "2021-10-28",
+        "repeat": false
+      }
+    },
+    {
+      "id": 10,
+      "title": "CVE Global Summit – Fall 2021",
+      "location": "Virtual",
+      "description": "A collaborative community event of CVE Partners focused on improving CVE.",
+      "permission": "private",
+      "url": "/Media/News/item/blog/2021/12/07/CVE-Global-Summit-Fall-2021",
+      "date": {
+        "start": "2021-10-26",
+        "end": "2021-10-27",
+        "repeat": false
+      }
+    },
+    {
+      "id": 9,
+      "title": "CVE Services 2.x for CNAs Workshop",
+      "location": "Virtual",
+      "description": "First of 3 planned workshops for CNAs. Topics for Workshop 1: intro to CVE Services; intro to JSON 5.0 + how to construct the JSON; intro to the free API; and Q/A. Primary Audience: developers/early adopters.",
+      "permission": "private",
+      "url": "",
+      "date": {
+        "start": "2021-09-23",
+        "end": "2021-09-23",
+        "repeat": false
+      }
+    },
+    {
+      "id": 8,
+      "title": "Strategic Planning Working Group (SPWG) Meeting",
+      "location": "Virtual",
+      "description": "Focused on the long-term strategy (1-5 years) and goals of the CVE Program; will work closely with the CVE Board to determine goals and objectives and will act to achieve them.",
+      "permission": "private",
+      "url": "/ProgramOrganization/WorkingGroups#StrategicPlanningWorkingGroupSPWG",
+      "date": {
+        "start": "2024-01-01",
+        "end": "ongoing",
+        "repeat": {
+          "day": "Wednesday",
+          "recurrence": "biweekly"
+        }
+      }
+    },
+    {
+      "id": 7,
+      "title": "Automation Working Group (AWG) Meeting",
+      "location": "Virtual",
+      "description": "Focused on identifying and advancing proposals for the collaborative design, development, and deployment of automated capabilities that support the efficient management of the CVE Program.<br/><br/>AWG meets every Tuesday alternating weekly between 9:00am ET and 4:00pm ET.",
+      "permission": "private",
+      "url": "/ProgramOrganization/WorkingGroups#AutomationWorkingGroupAWG",
+      "date": {
+        "start": "2025-01-01",
+        "end": "ongoing",
+        "repeat": {
+          "day": "Tuesday",
+          "recurrence": "weekly"
+        }
+      }
+    },
+    {
+      "id": 6,
+      "title": "CNA Organization of Peers (COOP) Meeting",
+      "location": "Virtual",
+      "description": "Provide a forum for more effective communication and participation by the CNAs.",
+      "permission": "private",
+      "url": "/ProgramOrganization/WorkingGroups#CNAOrganizationOfPeersCOOP",
+      "date": {
+        "start": "2025-01-01",
+        "end": "ongoing",
+        "repeat": {
+          "day": "Wednesday",
+          "recurrence": "biweekly"
+        }
+      }
+    },
+    {
+      "id": 5,
+      "title": "CVE Board Meeting",
+      "location": "Virtual",
+      "description": "Open and collaborative discussion of topics relevant to the ongoing oversight and strategic direction of the CVE Program.",
+      "permission": "private",
+      "url": "/ProgramOrganization/Board#Resources",
+      "date": {
+        "start": "2021-01-01",
+        "end": "2022-12-31",
+        "repeat": {
+          "day": "Wednesday",
+          "recurrence": "biweekly"
+        }
+      }
+    },
+    {
+      "id": 4,
+      "title": "Quality Working Group (QWG) Meeting",
+      "location": "Virtual",
+      "description": "Focused on identifying areas where CVE content, rules, guidelines, and best practices must improve to better support stakeholder use cases.",
+      "permission": "private",
+      "url": "/ProgramOrganization/WorkingGroups#QualityWorkingGroupQWG",
+      "date": {
+        "start": "2025-01-01",
+        "end": "ongoing",
+        "repeat": {
+          "day": "Thursday",
+          "recurrence": "weekly"
+        }
+      }
+    },
+    {
+      "id": 3,
+      "title": "CVE Outreach and Communications Working Group (OCWG) Meeting",
+      "location": "Virtual",
+      "description": "Promote the CVE Program to achieve program adoption and coverage goals through increased community awareness.",
+      "permission": "private",
+      "url": "/ProgramOrganization/WorkingGroups#OutreachandCommunicationsWorkingGroupOCWG",
+      "date": {
+        "start": "2025-01-01",
+        "end": "ongoing",
+        "repeat": {
+          "day": "Wednesday",
+          "recurrence": "monthly"
+        }
+      }
+    },
+    {
+      "id": 2,
+      "title": "CVE Global Summit – Spring 2021",
+      "location": "Virtual",
+      "description": "A collaborative community event of CVE Partners focused on improving CVE.",
+      "permission": "private",
+      "url": "/Resources/Media/Archives/Blogs/2021/2021-06-10_CVE-Global-Summit-Spring-2021.pdf",
+      "date": {
+        "start": "2021-05-13",
+        "end": "2021-05-14",
+        "repeat": false
+      }
+    },
+    {
+      "id": 1,
+      "title": "CVE Working Groups Readout",
+      "location": "Virtual",
+      "description": "Quarterly updates from the CVE Working Groups to CVE Partners.",
+      "permission": "private",
+      "url": "",
+      "date": {
+        "start": "2021-01-26",
+        "end": "2021-01-26",
+        "repeat": false
+      }
+    }
+  ],
+  "archiveEvents": [
+    {
+      "id": 1,
+      "year": "2020",
+      "url": "/Resources/Media/Archives/Events/2020_Events.pdf"
+    },
+    {
+      "id": 2,
+      "year": "2019",
+      "url": "/Resources/Media/Archives/Events/2019_Events.pdf"
+    },
+    {
+      "id": 3,
+      "year": "2018",
+      "url": "/Resources/Media/Archives/Events/2018_Events.pdf"
+    },
+    {
+      "id": 4,
+      "year": "2017",
+      "url": "/Resources/Media/Archives/Events/2017_Events.pdf"
+    },
+    {
+      "id": 5,
+      "year": "2016",
+      "url": "/Resources/Media/Archives/Events/2016_Events.pdf"
+    },
+    {
+      "id": 6,
+      "year": "2015",
+      "url": "/Resources/Media/Archives/Events/2015_Events.pdf"
+    },
+    {
+      "id": 7,
+      "year": "2014",
+      "url": "/Resources/Media/Archives/Events/2014_Events.pdf"
+    },
+    {
+      "id": 8,
+      "year": "2013",
+      "url": "/Resources/Media/Archives/Events/2013_Events.pdf"
+    },
+    {
+      "id": 9,
+      "year": "2012",
+      "url": "/Resources/Media/Archives/Events/2012_Events.pdf"
+    },
+    {
+      "id": 10,
+      "year": "2011",
+      "url": "/Resources/Media/Archives/Events/2011_Events.pdf"
+    },
+    {
+      "id": 11,
+      "year": "2010",
+      "url": "/Resources/Media/Archives/Events/2010_Events.pdf"
+    },
+    {
+      "id": 12,
+      "year": "2009",
+      "url": "/Resources/Media/Archives/Events/2009_Events.pdf"
+    },
+    {
+      "id": 13,
+      "year": "2008",
+      "url": "/Resources/Media/Archives/Events/2008_Events.pdf"
+    },
+    {
+      "id": 14,
+      "year": "2007",
+      "url": "/Resources/Media/Archives/Events/2007_Events.pdf"
+    },
+    {
+      "id": 15,
+      "year": "2006",
+      "url": "/Resources/Media/Archives/Events/2006_Events.pdf"
+    },
+    {
+      "id": 16,
+      "year": "2005",
+      "url": "/Resources/Media/Archives/Events/2005_Events.pdf"
+    },
+    {
+      "id": 17,
+      "year": "2004",
+      "url": "/Resources/Media/Archives/Events/2004_Events.pdf"
+    },
+    {
+      "id": 18,
+      "year": "2003",
+      "url": "/Resources/Media/Archives/Events/2003_Events.pdf"
+    },
+    {
+      "id": 19,
+      "year": "2002",
+      "url": "/Resources/Media/Archives/Events/2002_Events.pdf"
+    },
+    {
+      "id": 20,
+      "year": "2001",
+      "url": "/Resources/Media/Archives/Events/2001_Events.pdf"
+    },
+    {
+      "id": 21,
+      "year": "2000",
+      "url": "/Resources/Media/Archives/Events/2000_Events.pdf"
+    },
+    {
+      "id": 22,
+      "year": "1999",
+      "url": "/Resources/Media/Archives/Events/1999_Events.pdf"
+    }
+  ]
+}

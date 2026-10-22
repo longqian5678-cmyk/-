@@ -1,0 +1,642 @@
+@use 'initial-variables' as *;
+@use 'variables' as *;
+
+#app {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: left;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+/* Columns customizations start here */
+
+// The following is applicable only for the triple boxes in the CVEServices page
+// to keep the header heights consistent between the 3 boxes.  The other related
+// selector is below (cvesrvs-equal-hdr).  Both have (0, 2, 0) specificity, so
+// the one with the more restrictive width (>= 800px) has to follow this one.
+// It's the height of the middle box in the triple that we're basing the height
+// on.
+
+@media only screen and (min-width: $tablet) {
+  .cvesrvs-equal-hdr .cve-topicbox-header {
+    min-height: 4.5lh;
+  }
+}
+
+// Desktop starts at 1024px, and we used to conditionalize on that width;
+// however, if the width decreased below desktop the content would expand
+// and some formatting wouldn't look right.  If we are restricting to 800px
+// total width for the main column content, then we should keep the restriction
+// down to what we're restricting the width to, which is 800px.
+
+@media only screen and (min-width: 800px) {
+  .cve-main-column-content-width {
+    max-width: 800px;
+    min-width: 800px;
+  }
+
+  .cvesrvs-equal-hdr .cve-topicbox-header {
+    min-height: 3.5lh;
+  }
+}
+
+.column {
+  padding: 1rem;
+}
+
+/* Columns customizations end here */
+
+/* Layout - Container, Hero, Section, Tiles customizations start here */
+/** Layout - Container starts here **/
+#cve-homepage-columns-container,
+#cve-secondary-page-main-container,
+#cve-tertiary-page-main-container {
+  padding: 2rem 1rem 2rem 1rem;
+  flex: 1; // workaround to make Bulma footer sticky
+}
+
+/** Layout - Container ends here **/
+/** Layout - Hero starts here **/
+.hero {
+  margin-top: 2rem;
+}
+
+.hero-body {
+  padding: unset;
+}
+
+/** Layout - Section starts here **/
+section.hero:first-of-type {
+  margin-top: unset;
+}
+
+/** Layout - Section ends here **/
+/** Layout - Tile starts here **/
+.tile {
+  border-radius: $cve-border-radius;
+}
+
+.cve-border-dark-blue {
+  border: 1px solid $theme-color-primary-darker;
+}
+
+.tile.is-ancestor {
+  margin: unset;
+}
+
+.tile.is-ancestor:last-child {
+  margin-bottom: unset;
+}
+
+/** Layout - Tile ends here **/
+
+/** Layout - Link starts here **/
+.cve-feedback-link {
+  padding-top: 1.5rem;
+  text-align: center;
+}
+
+.cve-learn-more-link {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.cve-learn-more-link:hover, .cve-learn-more-link:focus-visible {
+  color: $theme-color-base-darker !important;
+}
+
+/** Layout - Link ends here **/
+
+/* Layout customizations end here */
+
+/* Elements - Button, Content, Icon, Images, Table, Title customizations start here */
+/** Elements - Button starts here **/
+.cve-button {
+  font-weight: bold;
+  border-width: 1px;
+  border-style: solid;
+  color: $theme-color-primary-darker;
+  border-color: $theme-color-primary-darker;
+}
+
+.cve-button-outline {
+  background-color: white !important;
+}
+
+.cve-button-accent-warm {
+  background-color: $theme-color-accent-warm;
+}
+
+.cve-button-base-color {
+  background-color: $theme-color-base-lightest;
+}
+
+a {
+  font-weight: bold;
+  color: $theme-color-primary;
+}
+
+a:hover {
+  color: $theme-color-primary-darker;
+}
+
+cve-router-link {
+  background-color: unset !important;
+}
+
+/** Elements - Button ends here **/
+/** Elements - Content starts here **/
+
+/*** secondary page & below start here ***/
+.cve-task-tile-header {
+  background-color: $theme-color-primary-darker;
+  color: white !important;
+  padding: 5px 10px 5px 10px;
+  text-align: left;
+  display: flex;
+}
+
+.cve-task-tile-group-header {
+  background-color: $theme-color-primary-darker;
+  color: white !important;
+  padding: 5px 10px 0px 10px;
+  text-align: center;
+  margin-bottom: 0px !important;
+}
+
+.tile.is-parent {
+  padding: 0.25rem;
+}
+
+
+.tile .is-parent.cve-task-left-tile {
+  padding-left: 0;
+}
+
+.cve-task-tile-list {
+  padding: 0px 10px 20px 35px;
+  text-align: left;
+}
+
+.cve-task-tile-list-item {
+  list-style: square;
+}
+
+.tile-body {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+}
+
+/*** secondary page & below end here ***/
+/** Elements - Content ends here **/
+
+/** Elements - Icon starts here **/
+.cve-icon-xxs {
+  font-size: 10px;
+  height: 12px !important;
+  width: 12px !important;
+}
+
+.cve-accordion-icon {
+  display: inline;
+  cursor: pointer;
+}
+
+/** Elements - Icon ends here **/
+
+/** Elements - List starts here **/
+.cve-list-no-bullet {
+  list-style-type: none;
+}
+
+/** Elements - List ends here **/
+.cve-round-edges-black-border {
+  border-radius: $cve-border-radius;
+  border: 1px solid black;
+}
+
+.cve-dark-purple-bg {
+  background-color: $cve-color-infographic-purple;
+}
+
+/** Elements - Notification starts here **/
+.notification.is-info-banner {
+  background-color: $theme-color-base-lightest;
+  color: $black;
+}
+
+.notification {
+  color: $black !important;
+}
+
+.notification.is-danger {
+  background-color: $theme-color-error-light;
+}
+
+.notification.is-warning {
+  background-color: $theme-color-warning-lighter !important;
+}
+
+.notification.is-success {
+  background-color: $theme-color-success-lighter;
+  color: $black;
+}
+
+.notification a:not(.button):not(.dropdown-item) {
+  text-decoration: none;
+  color: #005ea2;
+  cursor: pointer;
+}
+
+.notification a:not(.button):not(.dropdown-item):hover {
+  text-decoration: none;
+  color: $grey-darker;
+  cursor: pointer;
+}
+
+/** Elements - Notification ends here **/
+
+/** Elements - Table starts here **/
+.cve-scrollx-table-container {
+  overflow-x: auto; // horizontal scroll
+}
+
+.table-container {
+  width: 100%;
+}
+
+.table {
+  margin-top: 0.5rem;
+}
+
+.content .table thead tr th,
+.table thead th {
+  color: white;
+  background-color: $theme-color-primary-darker;
+  border: 1px solid $theme-color-primary-darker;
+}
+
+
+.table td {
+  border-bottom: 1px solid $theme-color-primary-darker;
+  width: 100%;
+}
+
+.table tbody tr th {
+  color: white;
+  background-color: $theme-color-primary-darker;
+  border: 1px solid $theme-color-primary-darker;
+}
+
+.cve-table-year-header {
+  text-align: center !important;
+}
+
+/** Elements - Table ends here **/
+
+
+/** Elements - Title starts here **/
+.cve-capitalize-first-letter {
+  text-transform: capitalize;
+}
+
+// h settings, all h levels must be included in the html for accessibility
+h1 {
+  font-size: 44px;
+}
+
+h2 {
+  font-size: 32px;
+}
+
+h3 {
+  font-size: 24px;
+}
+
+h4 {
+  font-size: 20px;
+}
+
+h5 {
+  font-size: 16px;
+}
+
+h6 {
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.title {
+  color: $black;
+}
+
+/*** secondary page & below start here ***/
+
+.cve-last-reviewed-date {
+  font-size: $size-6;
+  padding-top: 30px;
+}
+
+.cve-last-reviewed-date-label {
+  font-weight: $weight-bold;
+}
+
+#cve-tertiary-page-main-content {
+  text-align: left;
+}
+
+/*** secondary page & below end here ***/
+/** Elements - Tittle ends here **/
+
+/** Elements -Tag starts here **/
+.tag {
+  font-size: 16px;
+}
+
+/** Elements -Tag ends here **/
+/* Elements customizations end here */
+
+/* Components - Message, Menu, Panel customizations start here */
+/** Components - Menu starts here **/
+.menu {
+  background: white;
+  border: 1px solid $theme-color-primary-darker;
+  padding: 16px;
+  margin-top: unset;
+  border-radius: $cve-border-radius;
+}
+
+.menu-label {
+  font-size: $size-4;
+  margin-bottom: 0.5rem !important;
+  color: black;
+  font-weight: 600;
+  letter-spacing: unset;
+}
+
+/** Components - Menu ends here **/
+.message-header {
+  background-color: $white !important;
+  border-bottom: 2px solid $theme-color-base-lighter !important;
+  padding-bottom: 6px !important;
+  color: black !important;
+}
+
+.message-label {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.message-header>.cve-message-header-title {
+  margin-bottom: unset !important;
+}
+
+.message-body a {
+  color: $theme-color-primary !important;
+  text-decoration: unset !important;
+}
+
+.message-header-button {
+  border: unset !important;
+}
+
+/** Components - Panel starts here **/
+/*** secondary page & below start here ***/
+.cve-panel {
+  margin-top: 24px;
+  margin-bottom: 24px;
+  border-radius: $cve-border-radius;
+}
+
+.cve-panel-heading {
+  border-radius: $cve-border-radius;
+}
+
+/*** secondary page & below end here ***/
+/** Components - Panel ends here **/
+/* Components customizations end here */
+
+/* Form - Radio customizations end here */
+/** Form - Radio starts here **/
+.radio+.radio {
+  margin-left: unset;
+}
+
+.cve-search-input {
+  border-bottom: 2px solid $theme-color-primary-darker;
+  border-top: unset;
+  border-right: unset;
+  border-left: unset;
+  border-radius: unset;
+  box-shadow: unset;
+  background: none;
+}
+
+// borderless, no box shadow, text only button,\
+.cve-button-ghost {
+  border: unset !important;
+  box-shadow: unset !important;
+}
+
+/** Form - Radio ends here **/
+/* Form customizations end here */
+
+/* Helpers - Typography customizations end here */
+.cve-white-bg-gray-border-container {
+  background-color: white;
+  border: 1px solid $theme-color-base-lighter;
+  padding: 0 1rem 1rem 1rem;
+  margin-top: 1rem;
+}
+
+.cve-help-text {
+  font-size: 14px;
+  color: $theme-color-base-darkest;
+}
+
+.cve-dark-blue-text {
+  color: $theme-color-base-darkest;
+}
+
+/* Helpers customizations end here */
+
+/* Buefy - Collapse customizations start here */
+/** Buefy - Collapse starts here **/
+.cve-b-collapse-header-title {
+  padding: unset;
+  margin: 1px;
+}
+
+div#contentIdForA11y1.collapse-content {
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+.b-tabs {
+  padding: 1rem 2rem;
+}
+
+/** Buefy - Collapse ends here **/
+/* Buefy customizations end here */
+
+/* Bulma-Extensions - Timeline customizations start here (https://wikiki.github.io/components/timeline/) */
+.timeline .timeline-item .timeline-marker {
+  background-color: white !important;
+  border: 2px solid $theme-color-primary-darker !important;
+  top: 1rem !important;
+  font-weight: $weight-bold !important;
+}
+
+.timeline-content {
+  width: 90%;
+  padding: 1.2rem 0 0 2em !important;
+}
+
+.timeline {
+  padding: 8px;
+  background-color: white !important;
+  border: 1px solid $theme-color-base-lighter !important;
+  color: black !important;
+}
+
+.timeline-header>.tag {
+  background-color: unset;
+  color: $theme-color-base-darker;
+  text-transform: uppercase;
+}
+
+.timeline-marker {
+  height: 32px !important;
+  width: 32px !important;
+  margin: auto !important;
+  text-align: center !important;
+  border-radius: unset !important;
+  padding-top: 2px;
+}
+
+.timeline-item {
+  padding-bottom: unset !important;
+  border-left: 3px solid $theme-color-base-lighter;
+}
+
+.timeline-content>h3 {
+  margin-bottom: 0.5rem !important;
+}
+
+/* Bulma-Extensions customizations end here */
+
+/* Other starts here */
+.cve-is-borderless {
+  border: none;
+}
+
+/** Figure **/
+
+.cve-figure {
+  width: fit-content;
+  margin: 1rem auto;
+}
+
+.cve-figure img {
+    display: block;
+}
+
+.cve-figcaption-text {
+  font-style: italic;
+  text-align: center;
+  caption-side: bottom;
+}
+
+caption {
+  text-align: left;
+}
+
+/** Border **/
+.cve-base-light-gray-borders-bg {
+  border: 1px solid $theme-color-base-lighter !important;
+  background-color: $theme-color-base-lighter !important;
+  padding: auto !important;
+}
+
+.cve-base-light-gray-borders-bg button {
+  background-color: $theme-color-base-lighter !important;
+  border: unset !important;
+}
+
+.cve-base-light-gray-borders-bg button:hover {
+  border: unset !important;
+}
+
+@media only screen and (max-width: $desktop) {
+  .table.cve-border-bottom-unset td {
+    border-bottom: unset !important;
+  }
+}
+
+/** Margin **/
+.cve-no-margin {
+  margin: unset !important;
+}
+
+label {
+  padding-right: 10px;
+}
+
+/** Scroll **/
+.cve-x-scroll {
+  overflow-x: auto
+}
+
+.cve-y-scroll {
+  max-height: 15rem;
+  overflow-y: auto;
+}
+
+.cve-xy-scroll {
+  max-height: 100px;
+  overflow-y: auto;
+  overflow-x: auto
+}
+
+.cve-scroll-box {
+  max-height: 15rem;
+  border-bottom: 1px solid lightgray;
+  overflow-y: scroll;
+  border-top: 1px solid lightgray;
+  padding: .75rem
+}
+
+
+.cve-w-100 {
+  width: 100%;
+}
+
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, .5);
+  box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+}
+
+/* Other ends here*/
+
+// This is used to break long URLs so the "Scope" column of the Partner List
+// table doesn't expand and in turn cause the table width to go beyond the
+// parent's (DIV) width.  That also causes a horizontal scroll bar to show up.
+// The CSS has to be in global scope because the link (embedded in the scope
+// text in CNAsList.json) is added via "v-html" and Vue doesn't add the scope
+// tag to the "a" element in that case, so a scoped CSS won't apply.
+
+.partner_scope > a {
+  word-break: break-all;
+  display: inline-block;
+}
+
+/* Third party CSS */

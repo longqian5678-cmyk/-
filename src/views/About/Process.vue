@@ -1,0 +1,279 @@
+<template>
+  <div id="cve-secondary-page-main-container" class="container">
+    <div class="columns is-centered">
+      <div class="column is-8-desktop cve-main-column-content-width is-12-tablet">
+        <main id="cve-main-page-content" role="main">
+          <div class="content">
+            <h1 :id="process()['id']" class="title">{{process()['label']}}</h1>
+            <p>
+              There is one
+              <router-link to='/ResourcesSupport/Glossary?activeTerm=glossaryRecord'>CVE Record</router-link>
+              for each vulnerability on the
+              <router-link to='/ResourcesSupport/Glossary?activeTerm=glossaryCVEList'>CVE List</router-link>.
+              Vulnerabilities are first discovered, then reported to the CVE Program. The reporter requests a
+              <router-link to='/ResourcesSupport/Glossary?activeTerm=glossaryCVEID'>CVE ID</router-link>,
+              which is then reserved for the reported vulnerability. Once the reported vulnerability is confirmed by the
+              identification of the minimum required data elements for a CVE Record, the record is published to the CVE List.
+              CVE Records are published by CVE Program partners from around the world. This process is described below.
+            </p>
+            <h2 :id="anchorId('CVE Record Lifecycle')" class="title">
+              {{sectionLabel('CVE Record Lifecycle')}}
+            </h2>
+            <div class="cve-round-edges-black-border cve-dark-purple-bg">
+              <figure class="image cve-no-margin" >
+                <img src="@/assets/images/CVERecordLifeyclnfographic.jpg" alt="CVE record lifecycle is a six step process"/>
+              </figure>
+            </div>
+
+            <div class="timeline">
+              <header class="timeline-header">
+                <span class="tag is-medium">Start</span>
+              </header>
+              <div class="timeline-item">
+                <div class="timeline-marker">1</div>
+                <div class="timeline-content">
+                  <h3 class="title">Discover</h3>
+                  <p>A person or organization discovers a new vulnerability.</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-marker is-3">2</div>
+                <div class="timeline-content">
+                  <h3 class="title">Report</h3>
+                  <p>
+                    Discoverer reports a vulnerability to a
+                    <router-link to='/PartnerInformation/ListofPartners'>CVE Program partner</router-link>.
+                  </p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-marker">3</div>
+                <div class="timeline-content">
+                  <h3 class="title">Request</h3>
+                  <p>CVE Program partner assigns a CVE Identifier (CVE ID).</p>
+                  <section class="cve-accordion">
+                    <div class="message">
+                      <div class="message-header">
+                        <h4 class="title">CVE ID</h4>
+                        <button class="button" @click="toggleAccordionItem('cve-id')"
+                          :aria-expanded="!accordion['cve-id'] ? 'true' : 'false'"
+                          aria-controls="cve-id">
+                          <span class="icon is-small">
+                            <p id="cve-id-alttext" class="is-hidden">
+                              {{accordion['cve-id'] ? 'collapse' : 'expand'}}
+                            </p>
+                            <font-awesome-icon :icon="accordion['cve-id'] ? 'plus' : 'minus'"
+                            aria-hidden="false" focusable="true" aria-labelledby="cve-id-alttext"/>
+                          </span>
+                        </button>
+                      </div>
+                      <div class="message-body" :class="{'is-hidden': accordion['cve-id']}" id="cve-id">
+                        <div class="block">
+                          <p>
+                            A CVE ID is a unique, alphanumeric identifier assigned by the CVE Program. Each identifier references a specific
+                            <router-link to='/ResourcesSupport/Glossary?activeTerm=glossaryVulnerability'>vulnerability</router-link>.
+                          </p>
+                          <p>CVE IDs have the following format:</p>
+                          <p class="has-text-centered has-text-weight-bold">CVE prefix + Year + Arbitrary Digits</p>
+                          <p>
+                            The “Year” portion is the year that the CVE ID was reserved or the year the vulnerability was made public. The year
+                            portion is not used to indicate when the vulnerability was discovered.
+                          </p>
+                          <p>
+                            The “Arbitrary Digits,” or sequence number portion, can include four or more digits in the sequence number portion of
+                            the ID. For example, <span class="has-text-weight-bold">CVE-YYYY-NNNN</span> with four digits in the sequence number,
+                            <span class="has-text-weight-bold">CVE-YYYY-NNNNNNN</span> with seven digits in the sequence
+                            number, etc. There is no limit on the number of arbitrary digits.
+                          </p>
+                          <p>
+                            The CVE Program’s
+                            <router-link to='/ResourcesSupport/AllResources/CNARules'>CNA Rules</router-link>
+                            include additional helpful information about CVE IDs:
+                          </p>
+                          <ul>
+                            <li>
+                              <router-link to='/ResourcesSupport/AllResources/CNARules#section_4-1_Vulnerability_Determination'>
+                                Vulnerability Determination
+                              </router-link>
+                            </li>
+                            <li>
+                              <router-link to='/ResourcesSupport/AllResources/CNARules#section_4-2_CVE_ID_Assignment'>
+                                CVE ID Assignment
+                              </router-link>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+              </div>
+              <div class="timeline-item is-5">
+                <div class="timeline-marker">4</div>
+                <div class="timeline-content">
+                  <h3 class="title">Reserve</h3>
+                  <p>The ID is reserved, which is the initial state of a CVE Record.</p>
+                  <p>
+                    The Reserved state means that CVE stakeholder(s) are using the CVE ID for early-stage vulnerability coordination and
+                     management, but the CNA is not yet ready to publicly disclose the vulnerability.
+                  </p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-marker">5</div>
+                <div class="timeline-content">
+                  <h3 class="title">Submit</h3>
+                  <p>CVE Program partner submits the details.</p>
+                  <p>
+                    Details include but are not limited to affected product(s); affected or fixed product versions; vulnerability type, root
+                    cause, or impact; and at least one public reference.
+                  </p>
+                </div>
+              </div>
+              <div class="timeline-item pb-5">
+                <div class="timeline-marker">6</div>
+                <div class="timeline-content">
+                  <h3 class="title">Publish</h3>
+                  <p>
+                    Once the minimum required data elements are included in the CVE Record, it is published to the CVE List by the responsible
+                    CNA.
+                  </p>
+                  <p>The CVE Record is now available for download and viewing by the public.</p>
+                  <section class="cve-accordion">
+                    <div class="message">
+                      <div class="message-header">
+                        <h4 class="title">CVE Records</h4>
+                        <button class="button" @click="toggleAccordionItem('cve-record')"
+                          :aria-expanded="!accordion['cve-record'] ? 'true' : 'false'"
+                          aria-controls="cve-record">
+                          <span class="icon is-small">
+                            <p id="cve-record-alttext" class="is-hidden">
+                              {{accordion['cve-record'] ? 'collapse' : 'expand'}}
+                            </p>
+                            <font-awesome-icon :icon="accordion['cve-record'] ? 'plus' : 'minus'"
+                              aria-hidden="false" focusable="true" aria-labelledby="cve-record-alttext"/>
+                          </span>
+                        </button>
+                      </div>
+                      <div class="message-body" :class="{'is-hidden': accordion['cve-record']}" id="cve-record">
+                        <div class="block">
+                          <p>
+                            A CVE Record is the descriptive data about a vulnerability associated with a CVE ID, provided by a
+                            <router-link to='/ResourcesSupport/Glossary?activeTerm=glossaryCNA'>
+                              CVE Numbering Authority (CNA)
+                            </router-link>
+                            partner. This data is provided in a human and machine-readable
+                            <router-link to='/AllResources/CveServices#CveRecordFormat'>
+                              format
+                            </router-link>.
+                          </p>
+                          <p>Each CVE Record includes, at a minimum, the following:</p>
+                          <ol>
+                            <li>
+                              CVE ID with four or more digits in the sequence number portion of the ID (i.e., “CVE-1999-0067”, “CVE-2019-12345”,
+                              “CVE-2021-7654321”).
+                            </li>
+                            <li>Brief description of the security vulnerability.</li>
+                            <li>Affected products and versions.</li>
+                            <li>Any pertinent references (i.e., vulnerability reports and advisories).</li>
+                          </ol>
+                          <p>A CVE Record is associated with one of the following states:</p>
+                          <ul>
+                            <li>
+                              <span class="has-text-weight-bold">Reserved:</span>
+                              A CNA has reserved a CVE ID. This is the initial state of a CVE ID.
+                            </li>
+                            <li>
+                              <span class="has-text-weight-bold">Published:</span>
+                              A CNA has populated the data associated with the CVE ID and published the CVE Record.
+                            </li>
+                            <li>
+                              <span class="has-text-weight-bold">Rejected:</span>
+                              The CVE ID and the associated CVE Record should no longer be used. A Rejected CVE Record remains on the CVE List
+                              so that users know that the CVE ID and CVE Record are invalid.
+                            </li>
+                          </ul>
+                          <p>
+                            The CVE Program’s
+                            <router-link to='/ResourcesSupport/AllResources/CNARules'>CNA Rules</router-link>
+                            include additional helpful information about CVE Records:
+                          </p>
+                          <ul>
+                            <li>
+                              <router-link to='/ResourcesSupport/AllResources/CNARules#section_5_CVE_Record_Content'>
+                                CVE Record Content
+                              </router-link>
+                            </li>
+                            <li>
+                              <router-link to='/ResourcesSupport/AllResources/CNARules#section_4-2_CVE_ID_Assignment'>
+                                CVE ID Assignment
+                              </router-link>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+              </div>
+              <footer class="timeline-header">
+                <span class="tag is-medium">End</span>
+              </footer>
+            </div>
+          </div>
+        </main>
+      </div>
+      <div class="column is-3 is-hidden-touch">
+        <NavigationSidebar :nav="cvenavs['About']" />
+      </div>
+    </div>
+  </div>
+</template>
+
+<script setup>
+
+import NavigationSidebar from '@/components/NavigationSidebar.vue';
+import {reactive} from 'vue';
+
+const props = defineProps({
+  cvenavs: {
+    type: Object,
+    required: true,
+  },
+});
+
+const accordion = reactive({'cve-id': true, 'cve-record': true});
+
+function toggleAccordionItem(id) {
+  accordion[id] = !accordion[id];
+}
+
+function anchorId(sectionName) {
+  return process()['items'][sectionName]['anchorId'];
+}
+
+function process() {
+  return props.cvenavs['About']['submenu']['Process'];
+}
+
+function sectionLabel(sectionName) {
+    return process()['items'][sectionName]['label'];
+}
+
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped lang="scss">
+
+.button {
+  border-color: white;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:hover {
+  border: none;
+}
+</style>

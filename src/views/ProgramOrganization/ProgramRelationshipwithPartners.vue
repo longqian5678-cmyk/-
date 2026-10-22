@@ -1,0 +1,114 @@
+ <template>
+  <div id="cve-secondary-page-main-container" class="container">
+    <div class="columns is-centered">
+      <div class="column is-8-desktop cve-main-column-content-width is-12-tablet">
+        <main id="cve-main-page-content" role="main">
+          <div class="content">
+            <h1 :id="cvenavs['Program Organization']['submenu']['Program Relationship with Partners']['id']" class="title">
+              {{cvenavs['Program Organization']['submenu']['Program Relationship with Partners']['label']}}</h1>
+            <p>
+            The CVE Program partners with both internal and external partners.
+            </p>
+            <h2 :id="cvenavs['Program Organization']['submenu']['Program Relationship with Partners']['items']
+              ['Internal Partners']['anchorId']" class="title">
+              {{cvenavs['Program Organization']['submenu']['Program Relationship with Partners']['items']['Internal Partners']['label']}}
+            </h2>
+            <p>
+              Internal partners are active members of the CVE community and directly contribute to the CVE Program.
+            </p>
+            <h3 class="title">CVE Numbering Authorities (CNAs)</h3>
+            <p>
+              <router-link to="/ProgramOrganization/CNAs">Organizations</router-link>
+              from around the world that partner with the CVE Program to assign CVE IDs and publish CVE Records
+              for vulnerabilities within a specific scope.
+            </p>
+            <h3 class="title">Top-Level Roots and Roots</h3>
+            <p>
+              <router-link to="/ProgramOrganization/CNAs">Organizations</router-link>
+              from around the world that partner with the CVE Program, within a specific scope, for the recruitment, training,
+              and governance of one or more entities that are a CNA, CNA-LR, or another Root.
+            </p>
+            <h3 class="title">CVE Working Groups</h3>
+            <p>
+              <router-link to="/ProgramOrganization/WorkingGroups">Members</router-link>
+              of the CVE community (CNAs, Board members, and in some instances members of the general public) who
+              donate time to focus on improving processes, workflows, and other aspects of the program.
+            </p>
+            <h3 class="title">CVE Board</h3>
+            <p>
+              <router-link to="/ProgramOrganization/Board">Members</router-link>
+              of cybersecurity and related organizations who donate time to ensure that the CVE Program meets
+              the vulnerability identification needs of the global cybersecurity and technology community.
+            </p>
+            <h2 :id="cvenavs['Program Organization']['submenu']['Program Relationship with Partners']['items']
+              ['External Partners']['anchorId']" class="title">
+              {{cvenavs['Program Organization']['submenu']['Program Relationship with Partners']['items']['External Partners']['label']}}
+            </h2>
+            <p>
+              External partners are members of the greater cybersecurity community that enhance the use of, or promote the use of, CVE content.
+            </p>
+            <h3 class="title">Common Vulnerability Scoring System (CVSS)</h3>
+            <p>
+              <a href="https://www.first.org/cvss/" target="_blank">CVSS</a>,
+              operated by the
+              <a href="https://www.first.org/" target="_blank">Forum of Incident Response and Security Teams (FIRST)</a>,
+              is a separate program from CVE that offers a way to score the severity of software vulnerabilities, including those identified by
+              <router-link to='/ResourcesSupport/Glossary?activeTerm=glossaryRecord'>CVE Records</router-link>.
+              The
+              <router-link to="/AllResources/CveServices#CveRecordFormat">CVE Record Format</router-link>
+              enables CNAs to include
+              <a href="https://www.first.org/cvss/calculator/4.0" target="_blank">CVSS scores</a>
+              in their CVE Records when publishing them to the CVE List.
+            </p>
+            <h3 class="title">Forum of Incident Response and Security Teams (FIRST)</h3>
+            <p>
+              <a href="https://www.first.org/" target="_blank">FIRST</a>,
+              which is a separate program from CVE, is a global forum of incident response and security teams that aims to improve cooperation
+              between security teams on handling major cybersecurity incidents. The CVE Program has partnered with FIRST to co-host annual
+              “<a href="https://www.first.org/conference/vulncon2024/" target="_blank">CVE/FIRST VulnCon</a>”
+              conferences, the first of which was held in March 2024.
+            </p>
+            <h3 class="title">U.S. National Vulnerability Database (NVD)</h3>
+            <p>
+              <a href="https://nvd.nist.gov/" target="_blank">NVD</a>
+              is a vulnerability database operated by the
+              <a href="https://www.nist.gov/" target="_blank">National Institute of Standards and Technology (NIST)</a>.
+              The CVE List feeds NVD, which historically has built upon the information included in
+              <router-link to="/ResourcesSupport/Glossary?activeTerm=glossaryRecord">CVE Records</router-link>
+              to provide enhanced information for each record in its database.
+            </p>
+            <h2 :id="cvenavs['Program Organization']['submenu']['Program Relationship with Partners']['items']
+              ['Additional Resources']['anchorId']" class="title">
+              {{cvenavs['Program Organization']['submenu']['Program Relationship with Partners']['items']['Additional Resources']['label']}}
+            </h2>
+            <ul>
+              <li><router-link to="/PartnerInformation/Partner">Partner Information</router-link></li>
+              <li><router-link to="/About/RelatedEfforts">Related Efforts</router-link></li>
+            </ul>
+          </div>
+        </main>
+      </div>
+      <div class="column is-3 is-hidden-touch">
+        <NavigationSidebar :nav="cvenavs['Program Organization']" />
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import NavigationSidebar from '@/components/NavigationSidebar.vue';
+
+export default {
+  name: 'ProgramRelationshipwithPartners',
+  components: {
+    NavigationSidebar,
+  },
+  props: {
+    cvenavs: {
+      type: Object,
+      required: true,
+    },
+  },
+};
+
+</script>

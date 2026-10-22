@@ -1,0 +1,13 @@
+<template>
+<div class="cve-feedback-link">
+  <a href="https://forms.office.com/g/dFzysrHLpR" target="_blank">
+    Provide feedback for this page
+    <span class="icon cve-icon-xxs">
+      <p id="externalSurveyLink" class="is-hidden">
+        Survey opens in a new tab or window depending on browser settings
+      </p>
+      <font-awesome-icon icon="external-link-alt" aria-labelledby="extenalSurveyLink" aria-hidden="false"/>
+    </span>
+  </a>
+</div>
+</template>

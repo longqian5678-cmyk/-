@@ -1,0 +1,39 @@
+<template>
+  <div id="cve-program-references" v-if="references.length > 0"
+    class="mt-5"
+    style="word-break:break-all;"
+  >
+    <h4 class="title mb-3">References <span class="tag is-normal">{{ references.length }} Total</span></h4>
+    <div class="cve-scroll-box">
+      <ul class="mt-0">
+        <li v-for="(reference, index) in references" :key="`link-${index}`" class="cve-word-wrap">
+          <span class="icon-text">
+            <a :href="reference.url" target="_blank">
+              {{ (typeof reference.name !== 'undefined' && reference.name.length > 0) ? `${reference.hostname}: ${reference.name}` : reference.url }}
+              <span class="icon cve-icon-xxs">
+                <p id="enewsletter" class="is-hidden">external site</p>
+                <font-awesome-icon icon="external-link-alt" aria-labelledby="enewsletter"></font-awesome-icon>
+              </span>
+            </a>
+          </span>
+          <span v-for="tag in reference.tags" :key="tag">
+            <span class="tag ml-2 is-normal" v-if="tag.length > 0">
+              {{tag}}
+            </span>
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  props: {
+    references: {
+      type: Object,
+      required: true,
+    }
+  }
+}
+</script>

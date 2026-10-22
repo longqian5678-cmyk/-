@@ -1,0 +1,103 @@
+@use 'variables' as *;
+
+// Keeping the same order as bulma/sass, which is:
+//
+// @forward "utilities";
+// @forward "themes";
+// @forward "base";
+// @forward "elements";
+// @forward "form";
+// @forward "components";
+// @forward "grid";
+// @forward "layout";
+// @forward "base/skeleton";
+// @forward "helpers";
+
+@forward 'bulma/sass/utilities' with (
+  /** Override Bulma's variables **/
+  // $primary: $theme-color-primary-darker,
+  $text: black, // primary navbar text & body text color
+  $family-sans-serif: '"Source Sans Pro", "Public Sans Web", sans-serif',
+  $family-primary: '"Arial", "Source Sans Pro", "Public Sans Web", sans-serif, "Arial"',
+  $family-secondary: '"Arial", "Source Sans Pro", "Public Sans Web", sans-serif, "Arial"',
+  $family-code: sans-serif,
+  $primary: $theme-color-primary-darker,
+  $size-small: 0.77rem,
+);
+
+@use 'initial-variables' as *;
+
+@forward "bulma/sass/themes";
+
+@forward 'bulma/sass/base' with (
+  $body-background-color: $cve-theme-page-background,
+  $body-font-size: 1rem,
+);
+
+@forward 'bulma/sass/elements' with (
+  $box-shadow: none,
+  $content-heading-weight: $weight-semibold,
+  $icon-dimensions-large: 4rem,
+  $table-striped-row-even-background-color: $theme-color-base-lightest,
+  $title-weight: $weight-semibold,
+);
+
+@forward 'bulma/sass/form' with (
+  $input-placeholder-color: $theme-color-base,
+
+);
+
+// Commented-out settings were used before Bulma 1.0, but are now not available.
+// They're kept here in case we need to investigate if the UI look & feel
+// changes in some way.
+
+@forward 'bulma/sass/components' with (
+//   $message-background-color: white,
+  $message-header-radius: $cve-border-radius,
+  $navbar-background-color: $theme-color-primary-darker, // background for application size below desktop
+//   $navbar-item-hover-background-color: unset, // submenu background color for touchscreen
+  $navbar-item-color: white,
+//   $navbar-item-hover-color: white, // sets submenu item for selected page & active link color
+  $navbar-burger-color: $theme-color-accent-warm,
+  $navbar-tab-hover-border-bottom-color: white,
+  $navbar-tab-active-color: white,
+  $navbar-dropdown-radius: $cve-border-radius,
+  $navbar-dropdown-background-color: $theme-color-primary-darker,
+//   $navbar-dropdown-item-active-color: $theme-color-accent-cool-light, // desktop
+//   $navbar-dropdown-item-hover-color: white,
+  $pagination-margin: 0,
+);
+
+@forward "bulma/sass/grid";
+
+@forward "bulma/sass/layout" with (
+  $footer-background-color: $theme-color-base-lightest
+);
+
+@forward "bulma/sass/base/skeleton";
+@forward "bulma/sass/helpers";
+
+@use 'buefy/src/scss/buefy' with (
+  $icon-svg-width: 1em
+);
+
+.menu-list a.is-active {
+    --bulma-menu-item-h: #{$theme-color-accent-cool-light-h};
+    --bulma-menu-item-s: #{$theme-color-accent-cool-light-s};
+    --bulma-menu-item-l: #{$theme-color-accent-cool-light-l};
+}
+
+.pagination {
+  --bulma-pagination-selected-item-h: #{$theme-color-primary-darker-h};
+  --bulma-pagination-selected-item-s: #{$theme-color-primary-darker-s};
+  --bulma-pagination-selected-item-background-l: #{$theme-color-primary-darker-l};
+}
+
+.pagination-previous,
+.pagination-link,
+.pagination-next {
+    --bulma-pagination-item-h: #{$theme-color-primary-darker-h};
+    --bulma-pagination-item-s: #{$theme-color-primary-darker-s};
+    --bulma-pagination-selected-item-border-l: #{$theme-color-primary-darker-l};
+    --bulma-pagination-item-border-l: #{$theme-color-primary-darker-l};
+}

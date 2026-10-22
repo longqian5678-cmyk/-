@@ -1,0 +1,97 @@
+<template>
+  <div id="cve-secondary-page-main-container" class="container">
+    <div class="columns is-centered">
+      <div class="column is-8-desktop cve-main-column-content-width is-12-tablet">
+        <main id="cve-main-page-content" role="main">
+          <div class="content">
+            <h1 :id="cvenavs['Program Organization']['submenu']['Structure']['id']" class="title">
+              {{cvenavs['Program Organization']['submenu']['Structure']['label']}}
+            </h1>
+            <figure class="image" >
+              <img src="@/assets/images/CVEProgramStructure.png" alt="organizational chart of CVE program structure, including current
+                organizations in each role, which is described below" />
+            </figure>
+            <p>
+              The <router-link to='/ProgramOrganization/Board'>CVE Board</router-link> oversees CVE Program operations and determines its
+              strategic direction. The <router-link to='/ResourcesSupport/Glossary?activeTerm=glossarySecretariat'>Secretariat</router-link>
+              (currently <router-link to='/PartnerInformation/ListofPartners/partner/mitre'>The MITRE Corporation</router-link>) provides
+              administrative and logistical support to the CVE Board and maintains the CVE Program’s infrastructure.
+              <router-link to='/ResourcesSupport/Glossary?activeTerm=glossaryWG'>CVE Working Groups</router-link> focus on specific work areas and
+              are created by, and report to, the CVE Board.
+            </p>
+            <p>
+              <router-link to='/ResourcesSupport/Glossary?activeTerm=glossaryCVEID'>CVE ID</router-link> assignment and
+              <router-link to='/ResourcesSupport/Glossary?activeTerm=glossaryRecord'>CVE Record</router-link> publishing occur within a hierarchal
+              structure defined by the CVE Board. In that hierarchal structure,
+              <router-link to='/ResourcesSupport/Glossary?activeTerm=glossaryTLRoot'> Top-Level Roots (TL-Root)</router-link> report directly to the
+              CVE Board and manage their own <router-link to=''>Root</router-link> /
+              <router-link to='/ResourcesSupport/Glossary?activeTerm=glossaryCNA'> CVE Numbering Authority (CNA)</router-link> hierarchies that may
+              include one or more Roots, one or more CNAs, and one <router-link to='/ResourcesSupport/Glossary?activeTerm=glossaryCNALR'>
+              CNA of Last Resort (CNA-LR)</router-link>. In those hierarchies, managerial functions are performed by Roots and operational
+              functions (i.e., ID assignment and record publishing) are performed by CNAs.
+            </p>
+            <p>
+              There are currently two TL-Roots in the CVE Program: <router-link to='/PartnerInformation/ListofPartners/partner/CISA'>
+              Cybersecurity and Infrastructure Security Agency (CISA)</router-link> and
+              <router-link to='/PartnerInformation/ListofPartners/partner/mitre'>MITRE</router-link>.
+              The CISA TL-Root hierarchy includes two Roots
+              (<router-link to='/PartnerInformation/ListofPartners/partner/CERTVDE'>CERT@VDE</router-link>
+              and
+              <router-link to='/PartnerInformation/ListofPartners/partner/icscert'>CISA ICS</router-link>),
+              multiple CNAs, and one CNA-LR managed by the CISA ICS Root. The MITRE TL-Root hierarchy includes six Roots
+              (<router-link to='/PartnerInformation/ListofPartners/partner/ENISA'>ENISA</router-link>, 
+              <router-link to='/PartnerInformation/ListofPartners/partner/Google'>Google</router-link>,
+              <router-link to='/PartnerInformation/ListofPartners/partner/INCIBE'>INCIBE</router-link>,
+              <router-link to='/PartnerInformation/ListofPartners/partner/jpcert'>JPCERT/CC</router-link>,
+              <router-link to='/PartnerInformation/ListofPartners/partner/redhat'>Red Hat</router-link>, and
+              <router-link to='/PartnerInformation/ListofPartners/partner/THA-PSIRT'>Thales Group</router-link>),
+              multiple CNAs, and two CNA-LRs, one managed by Red Hat for its own Root hierarchy and one managed by the MITRE TL-Root.
+              In both TL-Root hierarchies, each of the eight Roots also manages their own CNAs.
+            </p>
+            <p>
+              <router-link to='/ProgramOrganization/ADPs'>Authorized Data Publishers (ADPs)</router-link>
+              are organizations authorized by the
+              <router-link to='/ProgramOrganization/Board'>CVE Board</router-link>
+              to enrich the content of
+              <a href='/ResourcesSupport/Glossary?activeTerm=glossaryRecord'>CVE Records</a>
+              published by <a href='/ProgramOrganization/CNAs'>CNAs</a>
+              with additional, related information (e.g., risk scores, references, vulnerability characteristics, translations, etc.).
+            </p>
+            <p class="is-italic is-centered">
+              Ask questions by accessing the
+              <span class="icon-text">
+                <a href="https://cveform.mitre.org/" target="_blank">CVE Program Web Forms
+                  <span class="icon is-size-7 cve-icon-xxs">
+                    <font-awesome-icon icon="external-link-alt" aria-labelledby="extenalLink1" aria-hidden="false" focusable="false"/>
+                  </span>
+                </a>
+              </span>
+              (choose “General Suport”).
+            </p>
+          </div>
+        </main>
+      </div>
+      <div class="column is-3 is-hidden-touch">
+        <NavigationSidebar :nav="cvenavs['Program Organization']" />
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import NavigationSidebar from '@/components/NavigationSidebar.vue';
+
+export default {
+  name: 'Structure',
+  components: {
+    NavigationSidebar,
+  },
+  props: {
+    cvenavs: {
+      type: Object,
+      required: true,
+    },
+  },
+};
+
+</script>

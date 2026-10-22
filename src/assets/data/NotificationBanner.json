@@ -1,0 +1,24 @@
+{
+  "shouldDisplay": false,
+  "publishCount": 7,
+  "collapsed": false,
+  "notificationContents": [
+    {
+      "contentType": "paragraph",
+      "content": "<b>NOTICE &mdash;</b>"
+    },
+    {
+      "contentType": "paragraph",
+      "content": "Due to routine maintenance,"
+    },
+    {
+      "contentType": "internalLink",
+      "link": "/AllResources/CveServices",
+      "linkText": "CVE Services"
+    },
+    {
+      "contentType": "paragraph",
+      "content": "for CNAs will be <strong>unavailable on September 30, 2026, between 2:00 PM and 4:00 PM EDT</strong>. As a result, viewing CVE Records and CVE Record search will also be unavailable during this time. We apologize for the inconvenience and thank you for your understanding."
+    }
+  ]
+}

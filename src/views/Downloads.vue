@@ -1,0 +1,141 @@
+<template>
+  <div id="cve-secondary-page-main-container" class="container">
+    <div class="columns is-centered">
+      <div class="column is-8-desktop cve-main-column-content-width is-12-tablet">
+        <main id="cve-main-page-content" role="main">
+          <div class="content">
+            <h1 :id="cvenavs['Downloads']['id']" class="title">{{cvenavs['Downloads']['label']}}</h1>
+            <p class="cve-help-text">
+              Links that redirect to external sites
+              <span class="icon cve-icon-xxs">
+                <p id="externalSiteLinks" class="is-hidden">external website</p>
+                <font-awesome-icon icon="external-link-alt" aria-labelledby="extenalSiteLinks"/>
+              </span> will open in a new window or tab depending on the browsers used.
+            </p>
+            <p>
+              The <router-link to='/ResourcesSupport/Glossary?activeTerm=glossaryCVEList'>CVE List</router-link> is available for download in the
+              format below, per the <router-link to="/Legal/TermsOfUse">terms of use</router-link>.<br>
+              To save compressed files, you may need to right-click and choose a “Save Link As” or “Save Target As” option.
+            </p>
+            <h2 :id="cvenavs['Downloads']['submenu']['Downloads']['submenu']['Current Format']['anchorId']" class="title">
+              {{cvenavs['Downloads']['submenu']['Downloads']['submenu']['Current Format']['label']}}
+            </h2>
+            <p>
+              Bulk download files of
+              <router-link to="/ResourcesSupport/Glossary?activeTerm=glossaryRecord">CVE Records</router-link>
+              in the
+              <router-link to="/AllResources/CveServices#CveRecordFormat">CVE Record Format</router-link>
+              are hosted in the
+              <a href="https://github.com/CVEProject/cvelistV5" target="_blank">cvelistV5 repository</a>
+              on GitHub.com. View the repository
+              <a href="https://github.com/CVEProject/cvelistV5" target="_blank">ReadMe</a>
+              for additional information and known issues.
+            </p>
+            <p>
+              The CVE List V5 repository includes
+              <a href="https://github.com/CVEProject/cvelistV5/releases" target="_blank">release versions</a>
+              of all current CVE Records generated from the official CVE Services API. All times are listed in
+              <a href="https://en.wikipedia.org/wiki/Coordinated_Universal_Time" target="_blank">Coordinated Universal Time (UTC)</a>.
+            </p>
+            <p>
+              Each release contains a description of CVEs added or updated since the last release, and an Assets section containing the downloads.
+              Note that the zip files are quite large and so will take some time to download.
+            </p>
+            <ul>
+              <li>
+                Baseline downloads are issued at the end of each day at midnight and posted under Assets in the following file name format:
+                Year-Month-Day_all_CVEs_at_midnight.zip, (e.g., 2024-04-01_all_CVEs_at_midnight.zip). This file remains unchanged for 24 hours.
+                If you are updating your CVE List using zip files daily (or less frequently), this is the best one to use.
+              </li>
+              <li>
+                Hourly updates are also provided under Assets using the file name format: Year-Month-Day_delta_CVEs_at_Hour 00Z.zip,
+                (e.g., 2024-04-01_delta_CVEs_at_0100Z.zip). This is useful if you need your CVE List to be accurate hourly. Be aware that this
+                file only contains the deltas since the baseline zip file.
+              </li>
+            </ul>
+            <div class="table-container" id="downloads-table">
+              <table class="table is-striped is-hoverable cve-border-dark-blue
+                is-fullwidth cve-border-bottom-unset">
+                <thead>
+                  <tr>
+                    <th style="width: 50%">Format</th>
+                    <th style="width: 50%">ZIP</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td data-label="Format" style="width: 20%">
+                      <router-link to="/AllResources/CveServices#CveRecordFormat">CVE JSON</router-link>
+                    </td>
+                    <td data-label="Unix Compressed" style="width: 80%">
+                      <a href="https://github.com/CVEProject/cvelistV5/archive/refs/heads/main.zip">main.zip</a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2 :id="cvenavs['Downloads']['submenu']['Downloads']['submenu']['Legacy Format']['anchorId']" class="title">
+              {{cvenavs['Downloads']['submenu']['Downloads']['submenu']['Legacy Format']['label']}}
+            </h2>
+            <div role="alert" class="notification is-warning is-light">
+              <div class="is-flex is-justify-content-center">
+                <p id="alertIconVariousFormts" class="is-hidden">alert</p>
+                <font-awesome-icon style="flex: 0 0 40px;" size="1x"  icon="exclamation-triangle" role="alert"
+                  aria-labelledby="alertIconVariousFormts" aria-hidden="false" />
+                <p>
+                  <span class="has-text-weight-bold">
+                    All support for the legacy CVE content download formats (i.e., CSV, HTML, XML, and CVRF) ended on June 30, 2024.
+                  </span>
+                  Click
+                  <router-link to="/Media/News/item/blog/2024/07/02/Legacy-CVE-Download-Formats-No-Longer-Supported">here</router-link>
+                  for details.
+                </p>
+              </div>
+            </div>
+          </div> <!-- content -->
+        </main>
+     </div>
+     <div class="column is-3 is-hidden-touch">
+        <OnPageSidebar :nav="cvenavs['Downloads'].submenu['Downloads']" />
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import OnPageSidebar from '@/components/OnPageSidebar.vue';
+
+export default {
+  name: 'Downloads',
+  components: {
+    OnPageSidebar,
+  },
+  props: {
+    cvenavs: {
+      type: Object,
+      required: true,
+    }
+  },
+  data() {
+    return {
+      today: new Date().toLocaleString([], { year: 'numeric', month: 'long', day: '2-digit' }),
+      todayDateStr: this.getDateTimeStr(),
+    };
+  },
+  methods: {
+    getDateTimeStr() {
+      this.dateObj = new Date();
+      this.todayDateTimeStr = `${this.dateObj.toLocaleString([], { year: 'numeric' })
+      }-${this.dateObj.toLocaleString([], { month: '2-digit' })
+      }-${this.dateObj.toLocaleString([], { day: '2-digit' })}`;
+      return this.todayDateTimeStr;
+    },
+  },
+};
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped lang="scss">
+@use '../assets/style/elements/cveTableStacked.scss';
+
+</style>

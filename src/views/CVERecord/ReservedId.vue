@@ -1,0 +1,109 @@
+<template>
+  <div class="columns is-centered">
+    <div class="column is-8-desktop cve-main-column-content-width">
+      <main id="cve-main-page-content" role="main">
+        <div class="content">
+          <nav class="level">
+            <div class="level-left">
+              <div class="level-item">
+                <h1 class="title">{{usecveRecordStore.cveId}}</h1>
+              </div>
+              <div class="level-item" v-if="hasState">
+                <span class="tag is-normal cve-state-tag has-text-weight-bold">{{usecveRecordStore.idData.state}}</span>
+              </div>
+            </div>
+            <div class="level-right">
+              <div class="level-item">
+                <a id="cve-view-json" :href="`${cveServicesBaseUrl}/api/cve-id/${usecveRecordStore.cveId}`" target="_blank">
+                  View JSON
+                </a>
+              </div>
+            </div>
+          </nav>
+          <div role="information" class="notification is-info is-light p-3">
+            <div class="is-flex" style="justify-content: center;">
+                <section class="cve-accordion" style="flex: 0 0 100%;">
+                    <div class="message" style="background: transparent !important;">
+                      <div class="message-header p-0"
+                        style="background: transparent !important;border-bottom: unset !important">
+                        <span class="icon-text">
+                          <span class="icon">
+                            <p id="infoIconVariousFormts" class="is-hidden">information</p>
+                            <font-awesome-icon style="flex: 0 0 40px;" size="1x"  icon="info-circle" role="alert"
+                              aria-labelledby="alertIconVariousFormts" aria-hidden="false" />
+                          </span>
+                          <span class="mr-1">Important CVE Record Format Information</span>
+                        </span>
+                        <button class="button message-header-button" style="background: transparent !important;"
+                          @click="isMessageExpanded = !isMessageExpanded">
+                          <span class="icon is-small">
+                            <p id="expandCollapseAltText" class="is-hidden">
+                              {{isMessageExpanded ? 'expand': 'collapse'}}
+                            </p>
+                            <font-awesome-icon :icon="isMessageExpanded ? 'minus' : 'plus'"
+                              aria-hidden="false" focusable="true" aria-labelledby="expandCollapseAltText"/>
+                          </span>
+                        </button>
+                      </div>
+                    </div>
+                </section>
+            </div>
+            <div v-if="isMessageExpanded" class="p-4 has-text-justified">
+              <p>
+                <router-link to='/ResourcesSupport/Glossary?activeTerm=glossaryRecord'>CVE Records</router-link>
+                on this CVE.ORG website are displayed in the official
+                <router-link to='/AllResources/CveServices#CveRecordFormat'>CVE Record Format</router-link>.
+                Downloads in this format are available on the <router-link to='/Downloads'>Downloads</router-link>
+                page. Learn more about the CVE Record Format
+                <router-link to='/AllResources/CveServices#CveRecordFormat'>here</router-link>.
+              </p>
+            </div>
+          </div>
+          <div class="has-text-justified">
+            <p>This ID has been reserved by a <router-link to="/ProgramOrganization/CNAs">CNA</router-link>.</p>
+            <p>
+              This candidate has been reserved by a CVE Numbering Authority (CNA). This record will be updated by the assigning CNA once details are
+              available. Learn more about the Reserved state
+              <router-link to="ResourcesSupport/FAQs#pc_cve_records-reserved_signify_in_cve_record">here</router-link>.
+            </p>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+</template>
+
+<script>import { usecveRecordStore } from '@/stores/cveRecord.ts';
+
+export default {
+  data() {
+    return {
+      isMessageExpanded: false,
+      cveServicesBaseUrl: this.GenericGlobalsStore.currentServicesUrl,
+      usecveRecordStore: usecveRecordStore()
+    };
+  },
+  methods: {
+    hasState() {
+      if (usecveRecordStore().idData?.state && usecveRecordStore().idData.state.length > 0) {
+        return true;
+      }
+
+      return false;
+    },
+  },
+};
+</script>
+
+<style lang="scss">
+
+@use 'cveRecord';
+
+</style>
+
+<style lang="scss" scoped>
+.tag.cve-state-tag {
+  background-color: $theme-color-base-light !important;
+  color: $theme-color-base-darkest !important;
+}
+</style>

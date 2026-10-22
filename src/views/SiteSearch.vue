@@ -1,0 +1,102 @@
+<template>
+  <div id="cve-secondary-page-main-container">
+    <div class="columns is-centered">
+      <div class="column is-12-desktop is-11-tablet cve-main-column-content-width">
+        <main id="cve-main-page-content" role="main">
+          <h1 class="title">Search CVE Site</h1>
+          <div role="alert" class="notification is-info is-light">
+            <div class="is-flex" style="justify-content: center;">
+              <p id="infoSearchTip" class="is-hidden">info</p>
+              <font-awesome-icon style="flex: 0 0 40px;" size="1x"  icon="info-circle" role="info"
+                aria-labelledby="infoSearchTip" aria-hidden="false" />
+              <div>
+                <p class="has-text-weight-bold">Search Tips:</p>
+                <ul>
+                  <li>To search CVE Records, use the <span class="has-text-weight-bold">CVE List Keyword Search</span> in the website banner.</li>
+                  <li>To search for CNAs, use the
+                    <span class="has-text-weight-bold"><router-link to="/PartnerInformation/ListofPartners">List of Partners</router-link></span>
+                    search.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div>
+            To search this website, enter keywords in the search bar below:
+          </div>
+          <div class="cve-loading-message has-text-centered" v-if="isLoading">
+            <span class="icon-text">
+              <span class="icon">
+                <span class="loader is-loading"/>
+              </span>
+              <span>Please wait...</span>
+            </span>
+          </div>
+          <div v-else>
+            <div role="alert"  v-if="hasLoadScriptError" class="notification is-warning is-light mt-2 mb-2">
+              <div class="is-flex" style="justify-content: center;">
+                <p id="alertIconCveRecordsRequestErrored" class="is-hidden">alert</p>
+                <font-awesome-icon style="flex: 0 0 40px;" size="1x"  icon="triangle-exclamation" role="img"
+                  aria-labelledby="alertIconCveRecordsRequestErrored" aria-hidden="false" />
+                <p>
+                  Site search is currently unavailable. Please
+                  <span class="icon-text">
+                    <a href="https://cveform.mitre.org/" target="_blank">report the issue
+                      <span class="icon is-size-7 cve-icon-xxs">
+                        <p id="extenalLinkReport" class="is-hidden">external site</p>
+                        <font-awesome-icon icon="up-right-from-square" aria-labelledby="extenalLinkReport" aria-hidden="false" focusable="false"/>
+                      </span>
+                    </a>
+                  </span>
+                  and try again later. Sorry for the inconvenience.
+                </p>
+              </div>
+            </div>
+            <div v-else class="gcse-searchbox"></div>
+          </div>
+          <div class="gcse-searchresults"></div>
+        </main>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+
+export default {
+  data() {
+    return {
+      hasLoadScriptError: false,
+      isLoading: true
+    }
+  },
+  mounted() {
+    this.isLoading = false;
+    this.$loadScript(`https://cse.google.com/cse.js?cx=${import.meta.env.VITE_GOOGLE_SITE_SEARCH_ENGINE_ID}`)
+      .then(() => {
+        this.hasLoadScriptError = false;
+      })
+      .catch(() => {
+        this.hasLoadScriptError = true;
+      })
+      .finally(() => {
+        this.isLoading = false;
+      });
+  },
+  unmounted() {
+    this.$unloadScript(`https://cse.google.com/cse.js?cx=${import.meta.env.VITE_GOOGLE_SITE_SEARCH_ENGINE_ID}`);
+  },
+};
+
+</script>
+
+<style scoped lang="scss">
+#cve-secondary-page-main-container {
+  background-color: white;
+}
+
+li {
+  list-style-type: square;
+  margin-left: 1rem;
+}
+</style>

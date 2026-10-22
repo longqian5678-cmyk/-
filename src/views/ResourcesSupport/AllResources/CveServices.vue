@@ -1,0 +1,786 @@
+<template>
+  <div id="cve-secondary-page-main-container" class="container">
+    <div class="columns is-centered">
+      <div class="column is-8-desktop cve-main-column-content-width is-12-tablet">
+        <main id="cve-main-page-content" role="main">
+          <div class="content">
+            <h1 :id="cveServices()['id']" class="title">
+              {{cveServices()['label']}}</h1>
+            <div class="content" id="intro">
+              <figure class="image" style="margin: 0 !important;">
+                <img src="@/assets/images/cveServicesBanner.png" alt="CVE Services: Automated ID reservation and record publishing">
+              </figure>
+              <p>
+                The CVE Program provides a self-service web interface for reserving CVE IDs and publishing CVE Records. With CVE Services,
+                CVE Numbering Authorities (CNAs) save time and reduce costs by directly and efficiently managing their own CVE content.
+              </p>
+              <p>To begin using the services, you’ll need to:</p>
+              <ol>
+                <li>
+                  <router-link :to="`#${anchorId('Obtaining Credentials')}`">
+                    Obtain account credentials</router-link>
+                </li>
+                <li>
+                  <router-link :to="`#${anchorId('Using CVE Services Clients')}`">
+                    Choose and begin using a web-based or command line client
+                  </router-link>
+                  (for interacting with the services)
+                </li>
+              </ol>
+              <p>
+                Below you will find an overview with current version and status, information on how to obtain credentials for using the services,
+                a workflow tutorial, demos of the clients used to interact with the services, and more.
+              </p>
+            </div>
+            <div class="content" id="overview">
+              <h2 :id="anchorId('Overview')" class="title">
+                {{sectionLabel('Overview')}}
+              </h2>
+              <p>
+                CVE Services are the CVE Program’s automated tools for
+                <router-link to="/ProgramOrganization/CNAs">CVE Numbering Authorities (CNAs)</router-link>
+                ID reservation and record publication.
+                CVE Services uses the
+                <router-link :to="`#${overviewAnchorId('CVE Record Format')}`">CVE Record Format</router-link>,
+                as noted below.
+              </p>
+              <h3 class="title" :id="overviewAnchorId('Current Status')">Current Status</h3>
+              <ul>
+                <li>
+                  <a href="https://github.com/CVEProject/cve-schema/blob/master/README.md" target="_blank">CVE Record Format 5.2.0</a>
+                  (view <a href="https://github.com/CVEProject/cve-schema/releases/tag/v5.2.0" target="_blank">release notes</a>)
+                </li>
+                <li>
+                  <a href="https://github.com/CVEProject/cve-services/releases/tag/v2.8.5" target="_blank">CVE Services 2.8.5</a>
+                  (view <a href="https://github.com/CVEProject/cve-services/releases/tag/v2.8.5" target="_blank">release notes</a>)
+                </li>
+              </ul>
+            <h4 class="title">Known Issues</h4>
+              <p>
+                <span class="has-text-weight-bold">CVE Record Retrieval returning over 500 records may return incomplete results</span>
+              </p>
+              <p>
+                <span class="is-italic">Added: 4/14/2023</span> &mdash; In a situation where the following conditions are present: (1) A CNA submits
+                a request for a CVE Record lookup that results in over 500 records being returned, AND (2) that CNA owns records that are being
+                updated (either by the CNA or the Secretariat) at the exact instance the retrieval is processing. The results returned may not be
+                complete (i.e., one record may be dropped). It is suggested that if CNAs are repeatedly retrieving more than 500 records from CVE
+                Services (using the GET /cve-id endpoint), that they contact the Secretariat for guidance on how best to implement/use this function
+                in their client.
+              </p>
+              <p>
+                <span class="has-text-weight-bold">NOTE:</span> Please report any anomalous behavior in CVE Services to the CVE Automation Working
+                Group (AWG) at
+                <a href="mailto:awg@cve-cwe-programs.groups.io">awg@cve-cwe-programs.groups.io</a>.
+                Questions about your chosen
+                <router-link to="/AllResources/CveServices#using-cve-services-clients">CVE Services Client</router-link>
+                should be directed to the client developers (learn more
+                <router-link to="/AllResources/CveServices#using-cve-services-clients">here</router-link>).
+              </p>
+              <h3 class="title" :id="overviewAnchorId('Architecture')">CVE Services Architecture</h3>
+              <p>
+                The CVE Services architecture includes three components, as shown below. CNAs will use
+                <router-link :to="`#${anchorId('Using CVE Services Clients')}`">
+                  CVE Services Clients to interact with the components from a single interface
+                </router-link>.
+              </p>
+              <div class="columns is-1 cve-task-tiles-container cvesrvs-equal-hdr">
+                <div class="column p-1 is-flex is-flex-direction-column">
+                  <TopicBox title="CVE ID Reservation (IDR) Service"
+                    titleSize="is-5">
+                    <ul class="tile-body cve-task-tile-list cve-tile">
+                      <li>Direct and on-demand CVE ID reservations</li>
+                      <li>Reserve any number of CVE IDs, in sequential or non-sequential order</li>
+                    </ul>
+                  </TopicBox>
+                </div>
+                <div class="column p-1 is-flex is-flex-direction-column">
+                  <TopicBox title="CVE Record Submission and Upload Service (RSUS)"
+                    titleSize="is-5">
+                    <ul class="tile-body cve-task-tile-list cve-tile">
+                      <li>Populate details of a CVE Record</li>
+                      <li>Submit a CVE Record for publication on the CVE List</li>
+                      <li>Update CVE Records on-demand</li>
+                    </ul>
+                  </TopicBox>
+                </div>
+                <div class="column p-1 is-flex is-flex-direction-column">
+                  <TopicBox title="CVE Services Data Registry" titleSize="is-5">
+                    <ul class="tile-body cve-task-tile-list cve-tile">
+                      <li>Authenticates and manages the users of the services for CNA organizations</li>
+                      <li>Manages CNA organization partner page information</li>
+                    </ul>
+                  </TopicBox>
+                </div>
+              </div>
+              <p class="mt-2">
+                For a detailed explanation of CVE Services and the services architecture, watch the “Introduction to CVE Services (2022)” and
+                “CVE Services (2023)” videos. For the most recent updates, watch the “CVE Services Infrastructure Updates (2024)” video.
+              </p>
+              <figure class="image is3by2">
+                <iframe class="has-ratio" src="https://www.youtube.com/embed/K2OoRpDhzss" title="Introduction to New CVE Services" frameborder="0"
+                  allowfullscreen>
+                </iframe>
+              </figure>
+              <figure class="image is3by2">
+                <iframe class="has-ratio" src="https://www.youtube.com/embed/Hu5KZ6X1WS4" title="CVE Services (2023)" frameborder="0"
+                  allowfullscreen>
+                </iframe>
+              </figure>
+              <figure class="image is3by2">
+                <iframe class="has-ratio" src="https://www.youtube.com/embed/7KhR7zC43TQ?si=TlenK-8vIfmZ8cgA"
+                title="CVE Services Infrastructure Updates (2024)" frameborder="0" allowfullscreen>
+                </iframe>
+              </figure>
+              <h3 :id="overviewAnchorId('CVE Record Format')" class="title">CVE Record Format</h3>
+              <p id="cve-json-5"></p>
+              <p>
+                CVE Services uses the CVE Record Format
+                (<a href="https://github.com/CVEProject/cve-schema/blob/master/README.md" target="_blank">view schema ReadMe</a>),
+                which normalizes and enriches how CVE information is presented, and adds optional data fields to CVE Records, such as:
+                severity scores, credit for researchers, additional languages, affected product lists, additional references, ability
+                for community contributions, etc.
+              </p>
+              <p>
+                For additional information, visit the
+                <a href="https://github.com/CVEProject/cve-schema" target="_blank">cve-schema repository</a>
+                 on GitHub or watch the “CVE JSON 5.x: Introduction/Guidance/Q&A (2022)”, “CVE JSON 5.x Guidance (2023),”
+                “CVE JSON 5.0 Experiences (2023)”, “Software ID: CPE and PURL (2025)”, and “CVE Record Format Roadmap (2025)”, videos:
+              </p>
+              <figure class="image is3by2">
+                <iframe class="has-ratio" src="https://www.youtube.com/embed/YWZECqzRI7M" title="CVE JSON 5.x: Introduction/Tips/Guidance/Q&A (2022)"
+                frameborder="0" allowfullscreen>
+                </iframe>
+              </figure>
+              <figure class="image is3by2">
+                <iframe class="has-ratio" src="https://www.youtube.com/embed/ok_ZMTCVmhw" title="CVE JSON 5.x Guidance (2023)" frameborder="0"
+                  allowfullscreen>
+                </iframe>
+              </figure>
+              <figure class="image is3by2">
+                <iframe class="has-ratio" src="https://www.youtube.com/embed/dcEJ2t2jwhE" title="CVE JSON 5.x Experiences (2023)" frameborder="0"
+                  allowfullscreen>dcEJ2t2jwhE
+                </iframe>
+              </figure>
+              <figure class="image is3by2">
+                <iframe class="has-ratio" src="https://www.youtube.com/embed/p6nbl58iL28?si=s6hMkZBcMS9V_6EM" title="Software ID: CPE and PURL (2025)" frameborder="0"
+                  allowfullscreen>dcEJ2t2jwhE
+                </iframe>
+              </figure>
+              <figure class="image is3by2">
+                <iframe class="has-ratio" src="https://www.youtube.com/embed/17rHENEiUIE?si=oHCW0o2_w4_GyGyl" title="CVE Record Format Roadmap (2025)" frameborder="0"
+                  allowfullscreen>dcEJ2t2jwhE
+                </iframe>
+              </figure>
+              <h4 class="title">Current Version of CVE Record Format Schema</h4>
+              <p>
+                The current official version of the CVE Record Format Schema in CVE JSON is
+                <a href="https://github.com/CVEProject/cve-schema/releases/tag/v5.2.0" target="_blank">Version 5.2.0</a>.
+              </p>
+              <p>
+                A single schema file with bundled dependencies is available in the
+                <a href="https://github.com/CVEProject/cve-schema" target="_blank">cve-schema repository</a>
+                on GitHub.
+              </p>
+            </div>
+            <div class="content" id="obtaining-credentials">
+              <h2 :id="anchorId('Obtaining Credentials')" class="title">
+                {{sectionLabel('Obtaining Credentials')}}
+              </h2>
+              <p>
+                Only CNAs with an active CVE Services User Account (with valid credentials) are eligible to use CVE Services. CNA organizations MUST
+                have one or more Organizational Administrators (OAs) and may have any number of individual user accounts.
+              </p>
+              <p>
+                Separate credentials are required for the
+                “<router-link to="/AllResources/CveServices#TestEnvironment">CVE Services Test Instance</router-link>.”
+                Please use the same process provided below to obtain services account credentials, but specify that you are requesting credentials
+                for the test instance.
+              </p>
+              <h3 class="title" :id="credentialsAnchorId('Organizational Admins')">Organizational Administrators</h3>
+              <p>Each CNA has one or more CVE Services OAs that will be responsible for:</p>
+              <ul>
+                <li>Managing CVE Services Accounts for the CNA (i.e., creating/deactivating CVE Services Account, resetting user credentials)</li>
+                <li>Affirming that each user to whom they grant an account is authorized to manage CVE Records</li>
+                <li>Ensuring that there is individual accountability for actions taken by CVE Services users from that CNA:
+                  <ul>
+                    <li>CVE Services require individuals to authenticate for each transaction and performs individual user logging</li>
+                    <li>However, if it is the case that a CNA is using a common account (which is highly discouraged) from which to publish/manage
+                      CVE Records, it is the responsibility of that CNA’s OA to maintain individual accountability of who has performed CVE Services
+                      transactions on behalf of that CNA
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+              <p>
+                To obtain CVE Services Organizational Administrator (OA) credentials, CNAs should contact their Root
+                (<router-link to="/PartnerInformation/ListofPartners/partner/icscert">CISA ICS</router-link>,
+                <router-link to="/PartnerInformation/ListofPartners/partner/CERTVDE">CERT@VDE</router-link>,
+                <router-link to='/PartnerInformation/ListofPartners/partner/ENISA'>ENISA</router-link>,
+                <router-link to="/PartnerInformation/ListofPartners/partner/Google">Google</router-link>,
+                <router-link to="/PartnerInformation/ListofPartners/partner/INCIBE">INCIBE</router-link>,
+                <router-link to="/PartnerInformation/ListofPartners/partner/jpcert">JPCERT/CC</router-link>,
+                <router-link to="/PartnerInformation/ListofPartners/partner/redhat">Red Hat</router-link>, or
+                <router-link to="/PartnerInformation/ListofPartners/partner/THA-PSIRT">Thales Group</router-link>),
+                or their Top-Level Root (<router-link to="/PartnerInformation/ListofPartners/partner/CISA">CISA</router-link> or
+                <router-link to="/PartnerInformation/ListofPartners/partner/mitre">MITRE</router-link>).
+              </p>
+              <h3 :id="credentialsAnchorId('CNA Users')" class="title">Individual CNA Users</h3>
+              <p>
+                CNA users obtain accounts through an account request to their CNA’s CVE Services OA. Once granted, the user will receive three pieces
+                of information that will be used to authenticate each CVE Services request:
+              </p>
+              <ol>
+                <li><span class="has-text-weight-bold">User ID:</span> Often this is the person’s email address.</li>
+                <li>
+                  <span class="has-text-weight-bold">CNA Short name:</span> An alphanumeric string that is used to reference the CNA that the user
+                  is representing. This name must match the “short name” in the CVE Services database.
+                </li>
+                <li>
+                  <span class="has-text-weight-bold">API Secret:</span> A randomly generated alphanumeric string that will be used to authenticate
+                  the user. Each account (i.e., user) has a unique API Secret. These API keys are often used in scripts and custom code and the keys
+                  should be adequately secured.
+                </li>
+              </ol>
+              <p>Watch the “How to Get a CVE Services Account (for CNAs only)” video:</p>
+              <figure class="image is3by2">
+                <iframe class="has-ratio" src="https://www.youtube.com/embed/KSNvidMTKNA" title="Introduction to New CVE Services" frameborder="0"
+                  allowfullscreen>
+                </iframe>
+              </figure>
+            </div>
+            <div class="content" id="cve-record-workflow">
+              <h2 :id="anchorId('CVE Record Workflow')"
+                class="title">
+                {{sectionLabel('CVE Record Workflow')}}
+              </h2>
+              <p>
+                <a href="/AllResources/CveServices#architecture">CVE Services</a> is the
+                <router-link to="/">CVE Program</router-link>’s
+                automation infrastructure that allows CNAs to submit and manage the CVE Records that they produce. CVE Records submitted through
+                CVE Services are published to the CVE List on an hourly basis.
+              </p>
+              <p>
+                The CVE Services API allows authenticated CNA personnel to reserve CVE IDs and populate, submit, and update CVE Records. That
+                workflow is described in the “CVE Record Workflow Overview Tutorial” video below:
+              </p>
+               <figure class="image is3by2">
+                <iframe class="has-ratio" src="https://www.youtube.com/embed/k6eRdnzgk9E" title="CVE Record Workflow Overview Tutorial"
+                  frameborder="0" allowfullscreen>
+                </iframe>
+              </figure>
+              <p>
+                Learn about CVE Record hygiene in this video:
+              </p>
+               <figure class="image is3by2">
+                <iframe class="has-ratio" src="https://www.youtube.com/embed/-KI4MsBrtF0?si=Yvzqy1uWiYdGBiRv" title="CVE Record Hygiene (2024)"
+                  frameborder="0" allowfullscreen>
+                </iframe>
+              </figure>
+              <p>
+                Learn how to use CVE Services to retrieve a list of your RESERVED CVE IDs
+                <router-link to="/ResourcesSupport/FAQs#pc_cna-retrieve_reserve_cve_ids_list">here</router-link>.
+              </p>
+              <p>
+                All CNAs must ensure their staff are using CVE Services correctly and responsibly. Please use the
+                Testing infrastructure to familiarize your team BEFORE attempting to use Production CVE Services. Your
+                <router-link to="/AllResources/CveServices#organizational-admins">CVE Services OA</router-link>
+                can manage credentials for your staff to access the test environment.
+              </p>
+              <p>
+                The Test CVE Services is available using the CVE Services Clients below, or directly via the
+                <router-link to="/AllResources/CveServices#build-your-own-client">API</router-link>.
+                When working with CVE IDs and CVE Records
+                in the Test system, you can review your results in the
+                <a href="https://test.cve.org/" target="_blank">TEST.CVE.ORG website</a>.
+                This is very helpful to ensure your Record content will be correct and complete when you move to production.
+              </p>
+              <p>
+                WARNING: All content you publish to Test is PUBLIC. Use fake data for Record content in Test. Do not leak embargoed
+                vulnerability details.
+              </p>
+              <p>
+                After training using Test, you can also use the Test environment for ensuring changes you make in your Record content will look
+                correct (using fake data). After successfully using Test, you can use Production CVE Services to publish, update, or reject
+                CVE Records.
+              </p>
+            </div>
+            <div class="content" id="">
+              <h2 :id="anchorId('Using CVE Services Clients')"
+                class="title">
+                {{sectionLabel('Using CVE Services Clients')}}
+              </h2>
+              <div role="information" class="notification is-info is-light p-3">
+                <div class="is-flex" style="justify-content: center;">
+                    <section class="cve-accordion" style="flex: 0 0 100%;">
+                        <div class="message" style="background: transparent !important;">
+                          <div class="message-header p-0"
+                            style="background: transparent !important;border-bottom: unset !important">
+                            <span class="icon-text">
+                              <span class="icon">
+                                <p id="how-clients-work" class="is-hidden">information</p>
+                                <font-awesome-icon style="flex: 0 0 40px;" size="1x"  icon="info-circle" role="alert"
+                                  aria-labelledby="how-clients-work" aria-hidden="false" />
+                              </span>
+                              <span class="mr-1">
+                                How the Clients Work with CVE Services
+                              </span>
+                            </span>
+                          </div>
+                          <div class="p-4 has-text-justified">
+                            <p>
+                              CVE Services Clients are used to reserve CVE IDs and populate, submit, and update CVE Records.
+                            </p>
+                          </div>
+                        </div>
+                    </section>
+                </div>
+              </div>
+              <div class="content">
+                <p>Currently available CVE Services clients:</p>
+                <div class="columns is-1 cve-task-tiles-container">
+                  <div class="column p-1 is-flex is-flex-direction-column">
+                    <TopicBox title="Vulnogram">
+                      <ul class="tile-body cve-task-tile-list cve-tile cve-client-description">
+                        <li>A robust CVE Record editor/submission web application that has been around since 2017 and has been updated to process
+                          the CVE Record Format and interact with CVE Services
+                        </li>
+                        <li>Can be downloaded, installed as a server, or accessed via a website</li>
+                        <li>Supports user account management</li>
+                      </ul>
+                      <div class="cve-client-links-container">
+                        <ul class="tile-body cve-task-tile-list cve-client-tile-links">
+                          <li style="list-style-type: none;">
+                            <a href="https://youtu.be/o3V-fmQpC0o" target="_blank">
+                              <span class="icon-text">
+                                <span class="icon has-text-danger">
+                                  <font-awesome-icon
+                                    :icon="['fab', 'youtube']" role="alert" aria-labelledby="vulnogramDemo" aria-hidden="false"
+                                  />
+                                </span>
+                                <span aria-labelledby="vulnogramDemo">Vulnogram demo #1</span>
+                              </span>
+                            </a>
+                          </li>
+                          <li style="list-style-type: none;">
+                            <a href="https://youtu.be/6LF98w8xtQ8" target="_blank">
+                              <span class="icon-text">
+                                <span class="icon has-text-danger">
+                                  <font-awesome-icon
+                                    :icon="['fab', 'youtube']" role="alert" aria-labelledby="vulnogramDemo" aria-hidden="false"
+                                  />
+                                </span>
+                                <span aria-labelledby="vulnogramDemo">Vulnogram demo #2</span>
+                              </span>
+                            </a>
+                          </li>
+                          <li style="list-style-type: none;">
+                            <a href="https://vulnogram.github.io/" target="_blank">
+                              <span class="icon-text">
+                                <span class="icon has-text-info">
+                                  <font-awesome-icon
+                                    :icon="['fa', 'window-maximize']" role="alert" aria-labelledby="vulnogramWebsite" aria-hidden="false"
+                                  />
+                                </span>
+                                <span aria-labelledby="vulnogramWebsite">Website</span>
+                              </span>
+                            </a>
+                          </li>
+                          <li style="list-style-type: none;">
+                            <a href="https://github.com/Vulnogram/Vulnogram" target="_blank">
+                              <span class="icon-text">
+                                <span class="icon has-text-black">
+                                  <font-awesome-icon :icon="['fab', 'github']" role="alert" aria-labelledby="vulnogramGH" aria-hidden="false" />
+                                </span>
+                                <span aria-labelledby="vulnogramGH">Vulnogram on GitHub</span>
+                              </span>
+                            </a>
+                          </li>
+                          <li style="list-style-type: none;">
+                            <a href="/Resources/Roles/Cnas/UsingVulnogramCVEServices.pdf" target="_blank">
+                              <span class="icon-text">
+                                <span class="icon has-text-black">
+                                  <p id="alertIcon" class="is-hidden">PDF icon</p>
+                                  <font-awesome-icon
+                                    :icon="['fas', 'fa-file-pdf']" role="alert" aria-labelledby="vulnogramGuide" aria-hidden="false" />
+                                </span>
+                                <span aria-labelledby="vulnogramGuide">User Guide (PDF, 4.0MB)</span>
+                              </span>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </TopicBox>
+                  </div>
+                  <div class="column p-1 is-flex is-flex-direction-column">
+                    <TopicBox title="cveClient">
+                      <ul class="tile-body cve-task-tile-list cve-tile cve-client-description">
+                        <li>A rudimentary CVE Record editor/submission that has recently been developed to simplify the creation and submission
+                          of CVE Records
+                        </li>
+                        <li>Can be downloaded and installed as a server, or it can be accessed via a website</li>
+                        <li>Supports user account management</li>
+                      </ul>
+                      <div class="cve-client-links-container">
+                        <ul class="tile-body cve-task-tile-list cve-client-tile-links">
+                          <li style="list-style-type: none;">
+                            <a href="https://www.youtube.com/watch?v=kqeM4noRnsg" target="_blank">
+                              <span class="icon-text">
+                                <span class="icon has-text-danger">
+                                  <font-awesome-icon
+                                    :icon="['fab', 'youtube']" role="alert" aria-labelledby="cveClientDemo" aria-hidden="false"
+                                  />
+                                </span>
+                                <span id="cveClientDemo">cveClient demo</span>
+                              </span>
+                            </a>
+                          </li>
+                          <li style="list-style-type: none;">
+                            <a href="https://github.com/CERTCC/cveClient#readme" target="_blank">
+                              <span class="icon-text">
+                                <span class="icon has-text-info">
+                                  <font-awesome-icon
+                                    :icon="['fab', 'readme']" role="alert" aria-labelledby="cveClientReadMe" aria-hidden="false"
+                                  />
+                                </span>
+                                <span id="cveClientReadMe">ReadMe</span>
+                              </span>
+                            </a>
+                          </li>
+                          <li style="list-style-type: none;">
+                            <a href="https://github.com/CERTCC/cveClient" target="_blank">
+                              <span class="icon-text">
+                                <span class="icon has-text-black">
+                                  <font-awesome-icon :icon="['fab', 'github']" role="alert" aria-labelledby="cveClientGH" aria-hidden="false" />
+                                </span>
+                                <span id="cveClientGH">cveClient on GitHub</span>
+                              </span>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </TopicBox>
+                  </div>
+                  <div class="column p-1 is-flex is-flex-direction-column">
+                    <TopicBox title="cvelib">
+                      <ul class="tile-body cve-task-tile-list cve-tile cve-client-description">
+                        <li>A simple library and command line interface (CLI) for the CVE Services API</li>
+                        <li>Can be integrated into an existing vulnerability management infrastructure or be used as a stand-alone CLI</li>
+                        <li>Supports user account management</li>
+                      </ul>
+                      <div class="cve-client-links-container">
+                        <ul class="tile-body cve-task-tile-list cve-client-tile-links">
+                          <li style="list-style-type: none;">
+                            <a href="https://youtu.be/qOCd4S8JMa0" target="_blank">
+                              <span class="icon-text">
+                                <span class="icon has-text-danger">
+                                  <font-awesome-icon :icon="['fab', 'youtube']" role="alert" aria-labelledby="cvelibDemo" aria-hidden="false" />
+                                </span>
+                                <span id="cvelibDemo">cvelib demo</span>
+                              </span>
+                            </a>
+                          </li>
+                          <li style="list-style-type: none;">
+                            <a href="https://github.com/RedHatProductSecurity/cvelib#readme" target="_blank">
+                              <span class="icon-text">
+                                <span class="icon has-text-info">
+                                  <font-awesome-icon :icon="['fab', 'readme']" role="alert" aria-labelledby="cvelibReadMe" aria-hidden="false" />
+                                </span>
+                                <span id="cvelibReadMe">ReadMe</span>
+                              </span>
+                            </a>
+                          </li>
+                          <li style="list-style-type: none;">
+                            <a href="https://github.com/RedHatProductSecurity/cvelib" target="_blank">
+                              <span class="icon-text">
+                                <span class="icon has-text-black">
+                                  <font-awesome-icon :icon="['fab', 'github']" role="alert" aria-labelledby="cvelibGH" aria-hidden="false" />
+                                </span>
+                                <span id="cvelibGH">cvelib on GitHub</span>
+                              </span>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </TopicBox>
+                  </div>
+                </div>
+              </div>
+              <div class="content">
+                <h4 class="title" id="communitydevelopedtoolsresources">Community-Developed Tools and Resources</h4>
+                <p>
+                  The tools and resources noted below are created by the community, for use by the community, in support of the CVE Services clients
+                  and CVE JSON. Note that the CVE Program does not maintain any of the items listed below. Please contact the maintainer of a tool
+                  or resource directly with any comments or concerns.
+                </p>
+                <ul>
+                  <li>
+                    <a href="https://github.com/mprpic/cvelint" target="_blank">cvelint</a>
+                    &ndash; A command line interface tool that validates CVE Records for possible errors in the CVE JSON schema that are neither
+                    enforceable by a schema, nor validated on the backend in CVE Services, when a CVE Record is created/updated.
+                    cvelint is hosted on GitHub. View the
+                    <a href="https://github.com/mprpic/cvelint/blob/main/README.md" target="_blank">cvelint ReadMe</a>.
+                  </li>
+                  <li>
+                    <a href="https://github.com/marketplace/actions/cve-cna-bot" target="_blank">CVE CNA Bot</a>
+                    &ndash; This GitHub action validates CVE JSON records and (optionally) submits them to the CVE RSUS service.
+                    View the
+                    <a href="https://github.com/DIVD-NL/cna-bot/blob/main/README.md" target="_blank">CVE CNA Bot ReadMe</a>.
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="content" id="">
+              <h2 :id="anchorId('Build Your Own Client')"
+                class="title">
+                {{sectionLabel('Build Your Own Client')}}
+              </h2>
+              <p>
+                If a CNA or individual is interested in fielding its own CVE Services client, the CVE Services Server API documentation will
+                provide the interface specification to allow you to develop your own client. Use the CVE Services “test environment” to explore
+                capabilities and confirm your scripts BEFORE using production.
+              </p>
+              <h4 class="title">CVE Services API</h4>
+              <p>
+                <strong>Test:</strong>
+              </p>
+              <ul>
+                <li>
+                Test API Documentation:
+                  <a href="https://cveawg-test.mitre.org/api-docs/" target="_blank">https://cveawg-test.mitre.org/api-docs/</a>
+                </li>
+                <li>
+                  Test API URL:
+                  <a href="https://cveawg-test.mitre.org/api" target="_blank">https://cveawg-test.mitre.org/api</a>
+                </li>
+                <li>
+                  Test Website:
+                  <a href="https://test.cve.org/" target="_blank">TEST.CVE.ORG</a>
+                  (data is public – use caution with test Record content)
+                </li>
+              </ul>
+              <p>
+                <strong>Production:</strong>
+              </p>
+              <ul>
+                <li>
+                  Production API Documentation:
+                  <a href="https://cveawg.mitre.org/api-docs/" target="_blank">https://cveawg.mitre.org/api-docs/</a>
+                </li>
+                <li>
+                  Production API URL:
+                  <a href="https://cveawg.mitre.org/api" target="_blank">https://cveawg.mitre.org/api</a>
+                </li>
+                <li>
+                  Production Website:
+                  <router-link to="/">CVE.ORG</router-link>
+                  (publishing Record content is IMMEDIATELY public)
+                </li>
+              </ul>
+              <p>
+                To support CVE Services Client development, the documentation offers an abstract example of the data to submit to these endpoints.
+                Additionally, concrete examples of the data (referred to as a “CNA Container”) to submit via a POST /cve/{id}/cna endpoint
+                (or PUT /cve/{id}/cna endpoint) can be found at the following links:
+              </p>
+              <ul>
+                <li>
+                  <a href="https://github.com/cveproject/cve-schema/blob/master/schema/docs/cnaContainer-basic-example.json"
+                  target="_blank">
+                    CVE Record Format CNA Container – Basic Example
+                  </a>
+                  provides an example of the simplest possible CVE JSON 5.x CVE Record
+                </li>
+                <li>
+                  <a href="https://github.com/cveproject/cve-schema/blob/master/schema/docs/cnaContainer-advanced-example.json"
+                  target="_blank">
+                    CVE Record Format CNA Container – Advanced Example
+                  </a>
+                  provides an example of a very robust CVE Record submission, demonstrating most of the possible capabilities of a CVE JSON 5.x
+                  CVE Record
+                </li>
+              </ul>
+            </div>
+            <div class="content" id="">
+              <h2 :id="anchorId('Test Environment')"
+                class="title">
+                {{sectionLabel('Test Environment')}}
+              </h2>
+              <p>
+                A CVE Services “Test Environment” consisting of the CVE Services test instance API noted above and a
+                <a href='https://test.cve.org/' target='_blank'>CVE website test instance</a>
+                is available for partners to test the integration of CVE Services into their existing vulnerability management infrastructures.
+              </p>
+              <p>
+                By using the test environment, which is completely separate from the official CVE Services, CNAs can assign test CVE IDs and
+                publish and edit test CVE Records and view them on the test CVE website with no impact on their official CVE IDs or CVE Records.
+                Partners wishing to develop their own CVE Services clients can also use the test environment to verify that their client is
+                working properly.
+              </p>
+              <p>
+                The test environment provides for unlimited self-training and process testing as organizations use CVE Services and CVE JSON.
+              </p>
+              <p>
+                A separate set of “test” credentials is required for access. Learn how to acquire test credentials
+                <a href='/AllResources/CveServices#obtaining-credentials'>here</a>.
+              </p>
+            </div>
+            <div class="content" id="">
+              <h2 :id="anchorId('Additional Resources')"
+                class="title">
+                {{sectionLabel('Additional Resources')}}
+              </h2>
+              <p>CVE Services resources hosted on GitHub:</p>
+              <ul>
+                <li><a href="https://github.com/CVEProject/cve-services#project" target="_blank">CVE Services Project</a></li>
+                <li><a href="https://github.com/CVEProject/cve-services/blob/dev/LICENSE" target="_blank">CVE Services License</a></li>
+                <li>
+                  <a href="https://github.com/CVEProject/cve-services/blob/dev/CONTRIBUTING.md" target="_blank">Contributing to CVE Services</a>
+                </li>
+              </ul>
+              <p>CVE Record Format resources hosted on GitHub:</p>
+              <ul>
+                <li>
+                  <a href="https://github.com/CVEProject/cve-schema/releases" target="_blank">
+                    CVE JSON Schema (Current Version)
+                  </a>
+                </li>
+                <li>
+                  <a href="https://cveproject.github.io/cve-schema/schema/docs/" target="_blank">Schema Documentation</a>
+                </li>
+                <li>
+                  <a href="https://github.com/cveproject/cve-schema/blob/master/schema/docs/cnaContainer-basic-example.json"
+                  target="_blank">
+                    CVE Record Format CNA Container – Basic Example
+                  </a>
+                </li>
+                <li>
+                  <a href="https://github.com/cveproject/cve-schema/blob/master/schema/docs/cnaContainer-advanced-example.json"
+                  target="_blank">
+                    CVE Record Format CNA Container – Advanced Example
+                  </a>
+                </li>
+                <li>
+                  <a href="https://cveproject.github.io/cve-schema/schema/docs/mindmap.html" target="_blank">CVE Record Structure Mind Map</a>
+                </li>
+              </ul>
+              <p>CVE Download files in CVE Record Format:</p>
+              <ul>
+                <li><router-link to="/Downloads">Downloads page</router-link></li>
+                <li><a href="https://github.com/CVEProject/cvelistV5" target="_blank">cvelistV5 repository on GitHub</a></li>
+              </ul>
+              <p>Other helpful resources:</p>
+              <ul>
+                <li>
+                  <a href="https://www.youtube.com/playlist?list=PLWfD9RQVdJ6dT8VZntG-DsK7c34rNNMMv" target="_blank">
+                  CVE Program CNA Workshop 2025 (12 Videos)</a>
+                </li>
+                <li>
+                  <a href="https://www.youtube.com/playlist?list=PLWfD9RQVdJ6c4D_PAvO9hgtQSDTD2epOo" target="_blank">
+                  CVE Program CNA Workshop 2024 (15 Videos)</a>
+                </li>
+                <li>
+                  <a href="https://www.youtube.com/playlist?list=PLWfD9RQVdJ6cWmIHqUIiJ_A5i1DrtG0wI" target="_blank">
+                  CVE Program Workshop Fall 2023 (7 Videos)</a>
+                </li>
+                <li>
+                  <a href="https://www.youtube.com/playlist?list=PLWfD9RQVdJ6etGbopVxE5Nb-8TzjY5cl9" target="_blank">
+                  CVE Services Workshop Fall 2022 (10 Videos)</a>
+                </li>
+              </ul>
+            </div>
+            <div class="content" id="">
+              <h2 :id="anchorId('Help')"
+                class="title">
+                {{sectionLabel('Help')}}
+              </h2>
+              <p>
+                Questions from CNAs about the CVE Services API can be posted to the CVE Program #cve-services SLACK channel (request an invite
+                through the
+                <a href="https://cveform.mitre.org/" target="_blank">CVE Program Request web forms</a>
+                and use the “Other” form). This channel is monitored 9:00 a.m. – 5:00 p.m. ET by CVE Services developers who can answer some
+                of your technical questions about the interface.
+              </p>
+              <p>
+                CNAs may also send questions to the CVE Program Secretariat through the
+                <a href="https://cveform.mitre.org/" target="_blank">CVE Program Request Web forms</a>
+                (use the “Other” form).
+              </p>
+              <p>Questions about your chosen CVE Services Client should be directed to the client developers.</p>
+            </div>
+          </div>
+        </main>
+      </div>
+      <div class="column is-3 is-hidden-touch">
+        <OnPageSidebar :nav="cveServices()" />
+      </div>
+    </div>
+  </div>
+</template>
+
+<script setup>
+
+import OnPageSidebar from '@/components/OnPageSidebar.vue';
+import TopicBox from '@/components/TopicBox.vue';
+
+const props = defineProps({
+  cvenavs: {
+    type: Object,
+    required: true
+  }
+});
+
+function anchorId(sectionName) {
+
+  return cveServices().submenu[sectionName].anchorId;
+}
+
+function cveServices() {
+
+  return props.cvenavs['All Resources']['submenu']['CVE Services'];
+}
+
+function credentialsAnchorId(sectionName) {
+
+    const credentials = cveServices().submenu['Obtaining Credentials'];
+
+    return credentials.items[sectionName].anchorId;
+}
+
+function overviewAnchorId(sectionName) {
+
+    const overview = cveServices().submenu['Overview'];
+
+    return overview.items[sectionName].anchorId;
+}
+
+function sectionLabel(sectionName) {
+    return cveServices().submenu[sectionName].label;
+}
+
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style lang="scss" scoped>
+
+.cve-tile {
+  margin: 0 0 0 0.25rem !important;
+}
+
+.cve-task-tile-header {
+  font-size: 1 rem !important;
+}
+
+.cve-client-tile-links {
+  margin: 0 !important;
+  padding: 0.5rem 0 0 0.5rem !important;
+}
+
+.cve-client-links-container {
+  border-top: 1px solid black;
+}
+
+.content figure {
+  margin: 0.5rem !important;
+  text-align: center;
+}
+
+</style>

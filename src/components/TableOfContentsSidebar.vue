@@ -1,0 +1,153 @@
+<template>
+  <aside class="menu">
+    <p class="menu-label cve-capitalize-first-letter">Table of Contents</p>
+    <ul class="menu-list cve-capitalize-first-letter">
+      <li class="mb-0" v-for="(sectionObj, pageSectionIndex) in nav.pageSections" :key="pageSectionIndex">
+        <span class="is-flex" style="justify-content: left; align-items:baseline; align-content: flex-start !important; width: inherit">
+          <span>{{pageSectionIndex + 1}} </span>
+          <router-link
+            :to="`#${sectionObj.sectionId}`"
+            :class="isExactPath(`#${sectionObj.sectionId}`) ? '' : 'cve-not-active-link'"
+          >
+            {{ sectionObj.sectionTitle }}
+          </router-link>
+        </span>
+        <ul>
+          <li v-for="(subSectionObj, index) in sectionObj.subSections" :key="index">
+            <span class="is-flex" style="justify-content: left; align-items:baseline; align-content: flex-start !important; width: inherit">
+              <span>{{pageSectionIndex + 1}}.{{index + 1}} </span>
+              <router-link
+                class="has-text-left"
+                :to="`#${subSectionObj.subSectionId}`"
+                :class="isExactPath(`#${subSectionObj.subSectionId}`) ? '' : 'cve-not-active-link'"
+              >
+                {{ subSectionObj.subSectionTitle }}
+              </router-link>
+              <button class="button is-text cve-button-submenu-toggle"
+                @click="toggleSubmenuItem(subSectionObj.subSectionId)"
+                :class="{'is-hidden': subSectionObj.subSubSections.length < 1}">
+                <span class="icon cve-icon-xxs">
+                  <font-awesome-icon :icon="selectedSubmenu.includes(subSectionObj.subSectionId) ? 'minus' : 'plus'"/>
+                </span>
+              </button>
+            </span>
+
+            <ul v-show="selectedSubmenu.includes(subSectionObj.subSectionId)">
+              <li v-for="(subSubSectionObj, sub2Idx) in subSectionObj.subSubSections" :key="sub2Idx">
+                  <span class="is-flex" style="justify-content: left; align-items:baseline; align-content: flex-start !important; width: inherit">
+                    <span>{{pageSectionIndex + 1}}.{{sub2Idx + 1}}.{{sub2Idx + 1}} </span>
+                    <router-link
+                      :to="`#${subSubSectionObj.subSubSectionId}`"
+                      :class="isExactPath(`#${subSubSectionObj.subSubSectionId}`) ? '' : 'cve-not-active-link'"
+                      >
+                      {{ subSubSectionObj.subSubSectionTitle }}
+                    </router-link>
+                  </span>
+              </li>
+            </ul> <!-- end page subSubSection list -->
+
+          </li>
+        </ul> <!-- end page subSection list -->
+      </li>
+    </ul> <!-- end page section list -->
+    <ul class="menu-list cve-capitalize-first-letter">
+      <li v-for="(sectionObj, index) in nav.appendices" :key="index">
+        <router-link
+          class="pl-0"
+          :to="`#${sectionObj.sectionId}`"
+          :class="isExactPath(`#${sectionObj.sectionId}`) ? '' : 'cve-not-active-link'"
+        >
+          {{ sectionObj.sectionTitle }}
+        </router-link>
+        <ul>
+          <li v-for="(subSectionObj, subIdx) in sectionObj.subSections" :key="subIdx">
+            <span class="is-flex" style="justify-content: left; align-items:baseline; align-content: flex-start !important; width: inherit">
+              <router-link
+                class="has-text-left"
+                :to="`#${subSectionObj.subSectionId}`"
+                :class="isExactPath(`#${subSectionObj.subSectionId}`) ? '' : 'cve-not-active-link'"
+              >
+                {{ subSectionObj.subSectionTitle }}
+              </router-link>
+              <button class="button is-text cve-button-submenu-toggle"
+                @click="toggleSubmenuItem(subSectionObj.subSectionId)"
+                :class="{'is-hidden': subSectionObj.subSubSections.length < 1}">
+                <span class="icon cve-icon-xxs">
+                  <font-awesome-icon :icon="selectedSubmenu.includes(subSectionObj.subSectionId) ? 'minus' : 'plus'"/>
+                </span>
+              </button>
+            </span>
+
+            <ul v-show="selectedSubmenu.includes(subSectionObj.subSectionId)">
+              <li v-for="(subSubSectionObj, sub2Idx) in subSectionObj.subSubSections" :key="sub2Idx">
+                <span class="is-flex" style="justify-content: left; align-items:baseline; align-content: flex-start !important; width: inherit">
+                  <span>{{sub2Idx + 1}} </span>
+                  <router-link
+                    class="has-text-left"
+                    :to="`#${subSubSectionObj.subSubSectionId}`"
+                    :class="isExactPath(`#${subSubSectionObj.subSubSectionId}`) ? '' : 'cve-not-active-link'"
+                  >
+                    {{ subSubSectionObj.subSubSectionTitle }}
+                  </router-link>
+                </span>
+              </li>
+            </ul> <!-- end appendix subSubSection list -->
+          </li>
+        </ul> <!-- end appendix subSection list -->
+      </li>
+    </ul> <!-- end appendix section list -->
+  </aside>
+</template>
+
+<script>
+import { useLinkStore } from '@/stores/link';
+
+useLinkStore
+export default {
+  props: {
+    nav: {
+      type: Object,
+      required: true,
+    },
+  },
+  data() {
+    return {
+      isActive: true,
+      isOpen: -1,
+      accordion: {},
+      accordionList: [],
+      selectedSubmenu: [],
+    };
+  },
+  created() {
+    this.setAccordion(false, '', 'subSectionId', 'subSections', ['pageSections', 'appendices']);
+  },
+  methods: {
+    isExactPath(onPageLink) {
+      return useLinkStore().isExactPath(`${this.$route.path}${onPageLink}`, this.$route.fullPath);
+    },
+    setAccordion(isHidden, parentId, childId, subSectionPropertyName, topLevelProperties) {
+      Object.keys(this.nav).forEach((topLevelSection) => {
+        if (topLevelProperties.includes(topLevelSection)) {
+          this.nav[topLevelSection].forEach((item) => {
+            item[subSectionPropertyName].forEach((subSection) => {
+              this.accordion[(parentId === '') ? subSection[childId] : `${item[parentId]}${subSection[childId]}`] = isHidden;
+            });
+          });
+        }
+      });
+    },
+    toggleAccordionItem(id) {
+      this.accordion[id] = !this.accordion[id];
+    },
+    toggleSubmenuItem(id) {
+      if (this.selectedSubmenu.includes(id)) {
+        const index = this.selectedSubmenu.indexOf(id);
+        this.selectedSubmenu.splice(index, 1);
+      } else {
+        this.selectedSubmenu.push(id);
+      }
+    },
+  },
+};
+</script>

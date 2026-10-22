@@ -1,0 +1,63 @@
+<template>
+  <aside class="menu cve-sidebar-menu mt-3" :class="isNavSidebarHiddenTouch ? 'is-hidden-touch' : ''">
+    <p class="menu-label cve-capitalize-first-letter">On this page</p>
+    <ul class="menu-list">
+      <li v-for="(submenuObj, submenuLabel) in nav.submenu" :key="submenuObj.key">
+        <span class="is-flex" style="justify-content: space-between; width: inherit">
+          <router-link
+            :to="`${submenuObj.path}#${submenuObj.anchorId}`"
+            :class="isExactPath(`/${submenuObj.path}#${submenuObj.anchorId}`) ? '' : 'cve-not-active-link'"
+          >
+            {{ submenuLabel }}
+          </router-link>
+        </span>
+        <ul>
+          <li v-for="(submenuItem, label) in submenuObj.items" :key="submenuObj.id + label">
+            <router-link
+              :to="submenuObj.path + '#' + submenuItem.anchorId"
+              :class="isExactPath(`/${submenuObj.path}#${submenuItem.anchorId}`) ? '' : 'cve-not-active-link'"
+            >
+              {{ submenuItem.label }}
+            </router-link>
+          </li>
+        </ul>
+    </li>
+    </ul>
+  </aside>
+</template>
+
+<script>
+import { useLinkStore } from '@/stores/link';
+
+export default {
+  name: 'OnePageSidebar',
+  props: {
+    nav: {
+      type: Object,
+      required: true,
+    },
+    isNavSidebarHiddenTouch: {
+      type: Boolean,
+      required: false,
+    },
+  },
+  data() {
+    return {
+      selectedSubmenu: [this.$route.path],
+    };
+  },
+  methods: {
+    toggleSubmenuItem(path) {
+      if (this.selectedSubmenu.includes(path)) {
+        const index = this.selectedSubmenu.indexOf(path);
+        this.selectedSubmenu.splice(index, 1);
+      } else {
+        this.selectedSubmenu.push(path);
+      }
+    },
+    isExactPath(onPageLink) {
+      return useLinkStore().isExactPath(onPageLink, this.$route.fullPath);
+    }
+  },
+};
+</script>

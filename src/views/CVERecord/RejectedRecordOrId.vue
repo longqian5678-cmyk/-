@@ -1,0 +1,204 @@
+<template>
+  <div class="columns is-centered">
+    <div class="column is-8-desktop cve-main-column-content-width">
+      <main id="cve-main-page-content" role="main">
+        <div class="content">
+          <nav class="level mb-0">
+            <div class="level-left">
+              <div class="level-item">
+                <h1 class="title">{{usecveRecordStore.cveId}}</h1>
+              </div>
+              <div v-if="cveFieldList.state.length > 0" class="level-item">
+                <span class="tag is-normal cve-state-tag has-text-weight-bold">{{cveFieldList.state}}</span>
+              </div>
+            </div>
+            <div class="level-right ml-1">
+              <div class="level-item">
+                <a id="cve-view-json"
+                  :href="`${cveServicesBaseUrl}/api/${ usecveRecordStore.isArecord ?
+                  'cve' : 'cve-id'}/${usecveRecordStore.cveId}`"
+                  target="_blank">
+                  View JSON
+                </a>
+              </div>
+            </div>
+          </nav>
+          <div role="information" class="notification is-info is-light p-3 mt-4">
+            <div class="is-flex" style="justify-content: center;">
+                <section class="cve-accordion" style="flex: 0 0 100%;">
+                    <div class="message" style="background: transparent !important;">
+                      <div class="message-header p-0"
+                        style="background: transparent !important;border-bottom: unset !important">
+                        <span class="icon-text">
+                          <span class="icon">
+                            <p id="infoIconVariousFormts" class="is-hidden">information</p>
+                            <font-awesome-icon style="flex: 0 0 40px;" size="1x"  icon="info-circle" role="alert"
+                              aria-labelledby="alertIconVariousFormts" aria-hidden="false" />
+                          </span>
+                          <span class="mr-1">Important CVE Record Format Information</span>
+                        </span>
+                        <button class="button message-header-button" style="background: transparent !important;"
+                          @click="isMessageExpanded = !isMessageExpanded">
+                          <span class="icon is-small">
+                            <p id="expandCollapseAltText" class="is-hidden">
+                              {{isMessageExpanded ? 'expand': 'collapse'}}
+                            </p>
+                            <font-awesome-icon :icon="isMessageExpanded ? 'minus' : 'plus'"
+                              aria-hidden="false" focusable="true" aria-labelledby="expandCollapseAltText"/>
+                          </span>
+                        </button>
+                      </div>
+                    </div>
+                </section>
+            </div>
+            <div v-if="isMessageExpanded" class="p-4 has-text-justified">
+              <p>
+                <router-link to='/ResourcesSupport/Glossary?activeTerm=glossaryRecord'>CVE Records</router-link>
+                on this CVE.ORG website are displayed in the official
+                <router-link to='/AllResources/CveServices#CveRecordFormat'>CVE Record Format</router-link>.
+                Downloads in this format are available on the <router-link to='/Downloads'>Downloads</router-link>
+                page. Learn more about the CVE Record Format
+                <router-link to='/AllResources/CveServices#CveRecordFormat'>here</router-link>.
+              </p>
+            </div>
+          </div>
+          <p v-if="cveFieldList.assigner.length > 0" :class="cveFieldList.dateRejectedCveMetadata || cveFieldList.dateUpdatedCveMetadata ? 'mb-0' : ''">
+            <span class="has-text-weight-bold" style="text-transform: capitalize;">Assigner: </span>
+            <span style="text-transform: capitalize;">{{cveFieldList.assigner}}</span>
+          </p>
+          <div id="cve-dates" v-if="cveFieldList.dateRejectedCveMetadata || cveFieldList.dateUpdatedCveMetadata"
+            class="has-text-grey-dark has-text-left content">
+            <span class="mr-2">
+              <span  v-if="cveFieldList.datePublishedCveMetadata">
+                <span class="has-text-weight-semibold">Published: </span>
+                <time>{{cveFieldList.datePublishedCveMetadata}}</time>
+              </span>
+              <span :class="cveFieldList.datePublishedCveMetadata ? 'ml-2' : ''" v-if="cveFieldList.dateRejectedCveMetadata">
+                <span class="has-text-weight-semibold">Rejected: </span>
+                <time>{{cveFieldList.dateRejectedCveMetadata}}</time>
+              </span>
+              <span :class="cveFieldList.dateRejectedCveMetadata ? 'ml-2' : ''" v-if="cveFieldList.dateUpdatedCveMetadata">
+                <span class="has-text-weight-semibold">Updated: </span>
+                <time>{{cveFieldList.dateUpdatedCveMetadata}}</time>
+              </span>
+            </span>
+          </div>
+          <p id="cve-rejected-reason" class="content has-text-justified">
+            <span class="has-text-weight-bold">Rejected Reason: </span>
+            <span>
+              <span v-if="cveFieldList.rejectedReasons.length == 0">
+                This CVE ID was unused by the <router-link to="/ProgramOrganization/CNAs">CNA</router-link>.
+              </span>
+              <span v-else>
+                <span v-for="rejectedReason in cveFieldList.rejectedReasons" :key="rejectedReason.index">
+                  {{rejectedReason}}
+                </span>
+              </span>
+            </span>
+          </p>
+        </div>
+      </main>
+    </div>
+  </div>
+</template>
+
+<script>import { usecveRecordStore } from '@/stores/cveRecord.ts';
+
+export default {
+  data() {
+    return {
+      isMessageExpanded: false,
+      cveFieldList: {
+        cveId: '',
+        state: '',
+        assigner: '',
+        rejectedReasons: [],
+        dateUpdatedCveMetadata: '',
+        dateRejectedCveMetadata: '',
+      },
+      originalRecordData: usecveRecordStore().recordData || {},
+      originalIdData: usecveRecordStore().idData || {},
+      cveServicesBaseUrl: this.GenericGlobalsStore.currentServicesUrl,
+      usecveRecordStore: usecveRecordStore()
+    };
+  },
+  mounted() {
+    this.populatedCveFieldList();
+  },
+  methods: {
+    populatedCveFieldList() {
+      this.getCVEid();
+      this.getState();
+      this.getAssigner();
+      this.getRejectedReason();
+      this.getDateUpdatedCveMetadata();
+      this.getDateRejectedCveMetadata();
+      this.getDatePublishedCveMetadata();
+    },
+    getCVEid() {
+      this.cveFieldList.cveId = usecveRecordStore().cveId;
+    },
+    getState() {
+      const value = usecveRecordStore().isArecord ? this.originalRecordData.cveMetadata?.state : this.originalIdData?.state;
+      if (this.hasData(value)) {
+        this.cveFieldList.state = value;
+      }
+    },
+    getAssigner() {
+      const value = usecveRecordStore().isArecord ? this.originalRecordData.cveMetadata?.assignerShortName : this.originalIdData?.owning_cna;
+      if (this.hasData(value)) {
+        this.cveFieldList.assigner = value.replace('_', ' ');
+      }
+    },
+    getRejectedReason() {
+      const value = usecveRecordStore().isArecord ? this.originalRecordData?.containers?.cna?.rejectedReasons : '';
+      if (this.hasData(value)) {
+        value.forEach((rejectReason) => {
+          if (rejectReason.lang === 'en') this.cveFieldList.rejectedReasons.push(rejectReason.value);
+        });
+      }
+    },
+    getDateUpdatedCveMetadata() {
+      const value = this.originalRecordData.cveMetadata?.dateUpdated;
+      if (typeof value !== 'undefined') {
+        this.cveFieldList.dateUpdatedCveMetadata = this.getDate(value);
+      }
+    },
+    getDateRejectedCveMetadata() {
+      const value = this.originalRecordData.cveMetadata?.dateRejected;
+      if (typeof value !== 'undefined') {
+        this.cveFieldList.dateRejectedCveMetadata = this.getDate(value);
+      }
+    },
+    getDatePublishedCveMetadata() {
+      const value = this.originalRecordData.cveMetadata?.datePublished;
+      if (typeof value !== 'undefined') {
+        this.cveFieldList.datePublishedCveMetadata = this.getDate(value);
+      }
+    },
+    hasData(value) {
+      if (typeof value !== 'undefined' && value.length > 0) {
+        return true;
+      }
+
+      return false;
+    },
+    getDate(dateTime) {
+      const [date] = dateTime.split('T');
+      return date;
+    },
+  },
+};
+</script>
+
+<style lang="scss">
+
+@use 'cveRecord';
+
+</style>
+<style lang="scss" scoped>
+.cve-state-tag {
+  background-color: $theme-color-yellow-vivid-20 !important;
+  color: $theme-color-base-darkest !important;
+}
+</style>

@@ -1,0 +1,194 @@
+[
+    {
+      "familyName": "Allor",
+      "firstName": "Peter",
+      "imageURL": "PeterA.jpg",
+      "organization": "",
+      "organizationURL": "",
+      "role": "Board"
+    },
+    {
+      "familyName": "Armstrong",
+      "firstName": "Ken",
+      "imageURL": "KenA.jpg",
+      "organization": "EWA-Canada, An Intertek Company",
+      "organizationURL": "https://www.intertek.com/cybersecurity/ewa-canada/",
+      "role": "Board"
+    },
+    {
+      "familyName": "Beardsley",
+      "firstName": "Tod",
+      "imageURL": "TodB.png",
+      "organization": "Austin Hackers Anonymous (AHA!)",
+      "organizationURL": "https://takeonme.org/",
+      "role": "Board"
+    },
+    {
+      "familyName": "Cerkovnik",
+      "firstName": "Lindsey",
+      "imageURL": "LindseyC.png",
+      "organization": "Cybersecurity and Infrastructure Security Agency (CISA)",
+      "organizationURL": "https://www.cisa.gov/about/divisions-offices/cybersecurity-division",
+      "role": "CISA CVE Board Liaison"
+    },
+    {
+      "familyName": "Coffin",
+      "firstName": "Chris",
+      "imageURL": "ChrisC.jpg",
+      "organization": "The MITRE Corporation",
+      "organizationURL": "https://www.mitre.org/",
+      "role": "MITRE At-Large"
+    },
+    {
+      "familyName": "Cox",
+      "firstName": "William",
+      "imageURL": "",
+      "organization": "Black Duck Software, Inc.",
+      "organizationURL": "https://www.blackduck.com/",
+      "role": "Board"
+    },
+    {
+      "familyName": "Ellis",
+      "firstName": "Jen",
+      "imageURL": "JenE.jpg",
+      "organization": "NextJenSecurity",
+      "organizationURL": "https://uk.linkedin.com/in/infosecjen",
+      "role": "Board"
+    },
+    {
+      "familyName": "Gazlay",
+      "firstName": "Jay",
+      "imageURL": "",
+      "organization": "Cybersecurity and Infrastructure Security Agency (CISA)",
+      "organizationURL": "https://www.cisa.gov/about/divisions-offices/cybersecurity-division",
+      "role": "Board"
+    },
+    {
+      "familyName": "Keanini",
+      "firstName": "Tim",
+      "imageURL": "TimK.jpg",
+      "organization": "",
+      "organizationURL": "",
+      "role": "Board"
+    },
+    {
+      "familyName": "Landfield",
+      "firstName": "Kent",
+      "imageURL": "",
+      "organization": "",
+      "organizationURL": "",
+      "role": "Board"
+    },
+    {
+      "familyName": "Lawler",
+      "firstName": "Scott",
+      "imageURL": "ScottL.jpg",
+      "organization": "LP3",
+      "organizationURL": "https://lp3.com/",
+      "role": "Board"
+    },
+    {
+      "familyName": "Manion",
+      "firstName": "Art",
+      "imageURL": "ArtM.jpg",
+      "organization": "",
+      "organizationURL": "",
+      "role": "Board"
+    },
+    {
+      "familyName": "MegaZone (MZ)",
+      "firstName": "",
+      "imageURL": "MegaZone.jpg",
+      "organization": "F5, Inc.",
+      "organizationURL": "https://www.f5.com/",
+      "role": "CNA Board Liaison"
+    },
+    {
+      "familyName": "Millar",
+      "firstName": "Tom",
+      "imageURL": "",
+      "organization": "Cybersecurity and Infrastructure Security Agency (CISA)",
+      "organizationURL": "https://www.cisa.gov/about/divisions-offices/cybersecurity-division",
+      "role": "Board"
+    },
+    {
+      "familyName": "Mittal",
+      "firstName": "Yogesh",
+      "imageURL": "YogeshM.png",
+      "organization": "Red Hat",
+      "organizationURL": "https://www.redhat.com/",
+      "role": "Board"
+    },
+    {
+      "familyName": "Nandakumaraiah",
+      "firstName": "Chandan",
+      "imageURL": "ChandanN.jpg",
+      "organization": "",
+      "organizationURL": "",
+      "role": "Board"
+    },
+    {
+      "familyName": "Noble",
+      "firstName": "Kathleen",
+      "imageURL": "KatieN.jpg",
+      "organization": "",
+      "organizationURL": "",
+      "role": "Board"
+    },
+    {
+      "familyName": "Ficorilli",
+      "firstName": "Madison",
+      "imageURL": "MadisonO.jpg",
+      "organization": "GitHub Security Lab",
+      "organizationURL": "https://securitylab.github.com/",
+      "role": "Board"
+    },
+    {
+      "familyName": "Olson",
+      "firstName": "Lisa",
+      "imageURL": "LisaO.jpg",
+      "organization": "Microsoft",
+      "organizationURL": "https://www.microsoft.com/",
+      "role": "Board"
+    },
+    {
+      "familyName": "Sabens",
+      "firstName": "Shannon",
+      "imageURL": "ShannonS.jpg",
+      "organization": "CrowdStrike, Inc.",
+      "organizationURL": "https://www.crowdstrike.com/",
+      "role": "Board"
+    },
+    {
+      "familyName": "Uchiyama",
+      "firstName": "Takayuki",
+      "imageURL": "TakiU.jpg",
+      "organization": "Panasonic Holdings Corporation",
+      "organizationURL": "https://www.panasonic.com/global/home.html",
+      "role": "Board"
+    },
+    {
+      "familyName": "",
+      "firstName": "",
+      "imageURL": "",
+      "organization": "National Institute of Standards and Technology (NIST)",
+      "organizationURL": "https://www.nist.gov/",
+      "role": "NIST CVE Board Liaison"
+    },
+    {
+      "familyName": "Waltermire",
+      "firstName": "David",
+      "imageURL": "DavidW.png",
+      "organization": "",
+      "organizationURL": "",
+      "role": "Board"
+    },
+    {
+      "familyName": "Williams",
+      "firstName": "Ken",
+      "imageURL": "KenW.jpg",
+      "organization": "Broadcom Inc.",
+      "organizationURL": "https://www.broadcom.com/",
+      "role": "Board"
+    }
+  ]
